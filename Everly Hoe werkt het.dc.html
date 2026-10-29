@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap"><h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">05 · Hoe werkt het</h1><span style="font-size:16px;color:#6B5648"><a href="Everly Home.dc.html">← Home</a> · <a href="Everly Cadeau-ideeen.dc.html">Cadeau-ideeën →</a></span></div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="5a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">5a</span><span style="font-size:14px;color:#6B5648">Mobiel · 390</span></div>
+<div data-screen-label="Hoe werkt het mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" hint-size="100%,100px"></dc-import>
+<div style="padding:28px 20px 0;display:flex;flex-direction:column;gap:14px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C2490A">Hoe werkt het</span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:36px;line-height:1.04;font-weight:700;letter-spacing:-.02em;text-wrap:balance">In 3 minuten een cadeau dat echt over hen gaat</h2>
+<p style="margin:0;font-size:16.5px;line-height:1.5;color:#5C4739">Geen tekentalent nodig. Jij kiest, wij tekenen, drukken en leveren.</p>
+</div>
+<div style="padding:28px 20px 0;display:flex;flex-direction:column;gap:28px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;aspect-ratio:4/3;border-radius:20px;background:repeating-linear-gradient(135deg,#F3E6D8 0 12px,#EEDFCE 12px 24px);display:flex;align-items:flex-end;padding:12px"><span style="font:500 11px ui-monospace,Menlo,monospace;color:#8A7362;background:rgba(251,247,242,.9);padding:4px 8px;border-radius:6px">{{ s.img }}</span><span style="position:absolute;top:12px;left:12px;width:44px;height:44px;border-radius:50%;background:#E25F0C;color:#fff;font-family:'Bricolage Grotesque';font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center">{{ s.n }}</span></div>
+<strong style="font-family:'Bricolage Grotesque';font-size:22px">{{ s.title }}</strong>
+<span style="font-size:15.5px;line-height:1.5;color:#5C4739">{{ s.text }}</span>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ s.tags }}" as="t" hint-placeholder-count="3"><span style="font-size:13px;font-weight:600;padding:6px 10px;border-radius:99px;background:#fff;border:1px solid #EADFD2">{{ t }}</span></sc-for></div>
+</div>
+</sc-for>
+</div>
+<div style="margin:36px 0 0;padding:28px 20px;background:#E4ECE5;display:flex;flex-direction:column;gap:16px">
+<h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;color:#1F3F32">Van bestelling tot voordeur</h3>
+<sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
+<div style="display:grid;grid-template-columns:20px 1fr;gap:12px"><div style="display:flex;flex-direction:column;align-items:center"><span style="width:14px;height:14px;border-radius:50%;background:#2F5D4A;margin-top:3px"></span><span style="flex:1;width:2px;background:#8FB3A0"></span></div><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:12px"><strong style="font-size:15.5px;color:#1F3F32">{{ t.when }} · {{ t.title }}</strong><span style="font-size:14.5px;line-height:1.45;color:#2F4A3E">{{ t.text }}</span></div></div>
+</sc-for>
+</div>
+<div style="margin:28px 20px 0;padding:22px;border-radius:20px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:10px"><strong style="font-family:'Bricolage Grotesque';font-size:20px">Onze blij-belofte</strong><span style="font-size:15px;line-height:1.5;color:#5C4739">Elk ontwerp wordt door ons nagekeken voor het in productie gaat. Is er toch iets mis of ben je niet blij, dan maken we het gratis opnieuw of krijg je je geld terug.</span><a href="Everly Klantenservice.dc.html#9c" style="font-size:15px;font-weight:700">Lees de voorwaarden →</a></div>
+<div style="padding:32px 20px 40px;display:flex;flex-direction:column;gap:12px;align-items:stretch;text-align:center"><strong style="font-family:'Bricolage Grotesque';font-size:24px">Klaar om te beginnen?</strong><a href="Everly Product.dc.html" style="height:56px;border-radius:99px;background:#C2490A;color:#fff;font:700 17px Figtree;display:flex;align-items:center;justify-content:center;text-decoration:none">Personaliseer jouw cadeau →</a></div>
+<dc-import name="EverlyFooter" variant="mobile" hint-size="100%,760px"></dc-import>
+</div>
+</div>
+
+<div id="5b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">5b</span><span style="font-size:14px;color:#6B5648">Desktop · 1440</span></div>
+<div data-screen-label="Hoe werkt het desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="desktop" active="Hoe werkt het" hint-size="100%,115px"></dc-import>
+<div style="padding:64px 56px 56px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+<span style="font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C2490A">Hoe werkt het</span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:60px;line-height:1.02;font-weight:700;letter-spacing:-.025em;max-width:860px;text-wrap:balance">In 3 minuten een cadeau dat echt over hen gaat</h2>
+<p style="margin:0;font-size:19px;line-height:1.5;color:#5C4739">Geen tekentalent nodig. Jij kiest, wij tekenen, drukken en leveren.</p>
+</div>
+<div style="padding:0 56px 80px;display:flex;flex-direction:column;gap:56px">
+<sc-for list="{{ stepsD }}" as="s" hint-placeholder-count="3">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+<div style="order:{{ s.imgOrder }};position:relative;aspect-ratio:4/3;border-radius:28px;background:repeating-linear-gradient(135deg,#F3E6D8 0 14px,#EEDFCE 14px 28px);display:flex;align-items:flex-end;padding:18px"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#8A7362;background:rgba(251,247,242,.9);padding:5px 9px;border-radius:6px">{{ s.img }}</span></div>
+<div style="order:2;display:flex;flex-direction:column;gap:16px;max-width:500px">
+<span style="width:56px;height:56px;border-radius:50%;background:#E25F0C;color:#fff;font-family:'Bricolage Grotesque';font-weight:700;font-size:26px;display:flex;align-items:center;justify-content:center">{{ s.n }}</span>
+<strong style="font-family:'Bricolage Grotesque';font-size:36px;letter-spacing:-.015em">{{ s.title }}</strong>
+<span style="font-size:18px;line-height:1.55;color:#5C4739">{{ s.text }}</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ s.tags }}" as="t" hint-placeholder-count="3"><span style="font-size:14px;font-weight:600;padding:7px 12px;border-radius:99px;background:#fff;border:1px solid #EADFD2">{{ t }}</span></sc-for></div>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="margin:0 56px 80px;padding:48px;border-radius:32px;background:#E4ECE5;display:flex;flex-direction:column;gap:28px">
+<h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:36px;font-weight:700;color:#1F3F32">Van bestelling tot voordeur</h3>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+<sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:10px"><span style="height:4px;border-radius:2px;background:#2F5D4A"></span><strong style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#2F5D4A">{{ t.when }}</strong><strong style="font-size:19px;color:#1F3F32">{{ t.title }}</strong><span style="font-size:15.5px;line-height:1.5;color:#2F4A3E">{{ t.text }}</span></div>
+</sc-for>
+</div>
+</div>
+<div style="margin:0 56px 80px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="padding:36px;border-radius:28px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:12px"><strong style="font-family:'Bricolage Grotesque';font-size:28px">Onze blij-belofte</strong><span style="font-size:17px;line-height:1.55;color:#5C4739">Elk ontwerp wordt door ons nagekeken voor het in productie gaat. Is er toch iets mis of ben je niet blij, dan maken we het gratis opnieuw of krijg je je geld terug.</span><a href="Everly Klantenservice.dc.html#9d" style="font-size:16px;font-weight:700">Lees de voorwaarden →</a></div>
+<div style="padding:36px;border-radius:28px;background:#C2490A;color:#fff;display:flex;flex-direction:column;gap:16px;justify-content:center"><strong style="font-family:'Bricolage Grotesque';font-size:32px;line-height:1.1">Klaar om te beginnen?</strong><span style="font-size:17px">Je ontwerp wordt automatisch bewaard, dus je kan rustig proberen.</span><a href="Everly Product.dc.html" style="align-self:flex-start;height:56px;padding:0 28px;border-radius:99px;background:#fff;color:#C2490A;font:700 17px Figtree;display:flex;align-items:center;text-decoration:none">Personaliseer jouw cadeau →</a></div>
+</div>
+<dc-import name="EverlyFooter" variant="desktop" hint-size="100%,380px"></dc-import>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const steps = [
+      { n: '1', title: 'Kies je cadeau', text: 'Begin bij een T-shirt voor het gezin, je lief, je vriendinnen of oma en opa. Kies de kleur, de maat en hoeveel personen erop komen.', img: 'productfoto · T-shirts in 5 kleuren', tags: ['5 kleuren', 'XS tot XXL', 'Kids 2–12 jaar'] },
+      { n: '2', title: 'Personaliseer', text: 'Per persoon kies je een kapsel en haarkleur en typ je de naam. Je ziet je ontwerp meteen veranderen, en alles wordt automatisch bewaard.', img: 'screenshot · ontwerpstudio', tags: ['1–6 personen', '14 kapsels', '8 haarkleuren', 'Namen tot 12 tekens'] },
+      { n: '3', title: 'Wij drukken en leveren', text: 'Ons team in Gent controleert je ontwerp, drukt het op biologisch katoen en verpakt het met zorg. Daarna gaat het met bpost of PostNL naar jou of naar hen.', img: 'foto · atelier in Gent', tags: ['3–5 werkdagen', 'Cadeauverpakking', 'Rechtstreeks naar de ontvanger'] }
+    ];
+    return {
+      steps,
+      stepsD: steps.map((s, i) => ({ ...s, imgOrder: i % 2 ? 3 : 1 })),
+      timeline: [
+        { when: 'Dag 0', title: 'Je bestelt', text: 'Je krijgt meteen een bevestiging met je ontwerp. Aanpassen kan nog 2 uur.' },
+        { when: 'Dag 1', title: 'Wij kijken na', text: 'We checken namen en ontwerp. Twijfel? Dan mailen we je eerst.' },
+        { when: 'Dag 1–5', title: 'Met de hand gemaakt', text: 'Gedrukt, gecontroleerd en verpakt in ons atelier.' },
+        { when: '+1–2 dagen', title: 'Bij jou thuis', text: 'Verzonden met bpost of PostNL, met track & trace.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

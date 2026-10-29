@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap"><h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">06 · Cadeau-ideeën</h1><span style="font-size:16px;color:#6B5648"><a href="Everly Hoe werkt het.dc.html">← Hoe werkt het</a> · <a href="Everly Zoeken.dc.html">Zoeken &amp; 404 →</a> · Budgetfilters zijn klikbaar</span></div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="6a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">6a</span><span style="font-size:14px;color:#6B5648">Mobiel · 390</span></div>
+<div data-screen-label="Cadeau-ideeën mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" hint-size="100%,100px"></dc-import>
+<div style="padding:28px 20px 0;display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:36px;line-height:1.04;font-weight:700;letter-spacing:-.02em;text-wrap:balance">Cadeau-ideeën voor wie je graag ziet</h2>
+<p style="margin:0;font-size:16px;line-height:1.5;color:#5C4739">Zoek op gelegenheid, op persoon of op budget. Alles maak je zelf persoonlijk.</p>
+</div>
+<div style="margin:20px 20px 0;padding:16px;border-radius:18px;background:#2A1C14;color:#FBF7F2;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F5B98F">Sinterklaas &amp; kerst</span><strong style="font-size:16.5px;line-height:1.35">Bestel vóór 25 november, dan ligt je cadeau op tijd in de schoen.</strong><a href="#" style="font-size:14.5px;font-weight:700;color:#F5B98F">Alle deadlines →</a></div>
+<div style="padding:32px 20px 0;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700">Per gelegenheid</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<sc-for list="{{ occasions }}" as="o" hint-placeholder-count="6">
+<a href="Everly Collectie.dc.html" style="min-height:88px;border-radius:16px;background:{{ o.tint }};padding:14px;display:flex;flex-direction:column;justify-content:space-between;color:#2A1C14;text-decoration:none"><strong style="font-size:16px">{{ o.label }}</strong><span style="font-size:13px;color:#5C4739">{{ o.when }}</span></a>
+</sc-for>
+</div>
+</div>
+<div style="padding:32px 0 0;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;padding:0 20px;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700">Per budget</h3>
+<div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 20px"><sc-for list="{{ budgets }}" as="b" hint-placeholder-count="4"><button onClick="{{ b.pick }}" style="flex:0 0 auto;height:44px;padding:0 16px;border-radius:99px;border:1.5px solid {{ b.border }};background:{{ b.bg }};color:{{ b.color }};font:600 14.5px Figtree">{{ b.label }}</button></sc-for></div>
+<div style="padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:20px 12px"><sc-for list="{{ budgetProducts }}" as="p" hint-placeholder-count="2"><dc-import name="EverlyCard" product="{{ p }}" size="s" hint-size="100%,290px"></dc-import></sc-for></div>
+</div>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="2">
+<div style="padding:36px 20px 0;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700">{{ r.title }}</h3><a href="Everly Collectie.dc.html" style="font-size:14.5px;font-weight:600">Alles</a></div>
+<span style="font-size:15px;line-height:1.5;color:#5C4739;margin-top:-6px">{{ r.text }}</span>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><sc-for list="{{ r.products }}" as="p" hint-placeholder-count="2"><dc-import name="EverlyCard" product="{{ p }}" size="s" hint-size="100%,290px"></dc-import></sc-for></div>
+</div>
+</sc-for>
+<div style="margin:36px 20px 40px;border-radius:20px;overflow:hidden;background:#F4EBE0">
+<div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F3E6D8 0 12px,#EEDFCE 12px 24px);display:flex;align-items:flex-end;padding:12px"><span style="font:500 11px ui-monospace,Menlo,monospace;color:#8A7362;background:rgba(251,247,242,.9);padding:4px 8px;border-radius:6px">sfeerfoto · cadeau uitpakken</span></div>
+<div style="padding:18px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C2490A">Cadeaugids</span><strong style="font-family:'Bricolage Grotesque';font-size:20px;line-height:1.2">7 cadeaus voor grootouders die al alles hebben</strong><a href="#" style="font-size:14.5px;font-weight:700">Lees de gids →</a></div>
+</div>
+<dc-import name="EverlyFooter" variant="mobile" hint-size="100%,760px"></dc-import>
+</div>
+</div>
+
+<div id="6b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">6b</span><span style="font-size:14px;color:#6B5648">Desktop · 1440</span></div>
+<div data-screen-label="Cadeau-ideeën desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="desktop" active="Cadeau-ideeën" hint-size="100%,115px"></dc-import>
+<div style="padding:56px 56px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end">
+<div style="display:flex;flex-direction:column;gap:16px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:64px;line-height:1;font-weight:700;letter-spacing:-.025em;text-wrap:balance">Cadeau-ideeën voor wie je graag ziet</h2><p style="margin:0;font-size:19px;line-height:1.5;color:#5C4739">Zoek op gelegenheid, op persoon of op budget. Alles maak je zelf persoonlijk.</p></div>
+<div style="padding:24px 28px;border-radius:24px;background:#2A1C14;color:#FBF7F2;display:flex;flex-direction:column;gap:8px"><span style="font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F5B98F">Sinterklaas &amp; kerst</span><strong style="font-size:20px;line-height:1.35">Bestel vóór 25 november, dan ligt je cadeau op tijd in de schoen.</strong><span style="font-size:15px;color:#D9C9B8">Voor kerst: bestel vóór 15 december.</span></div>
+</div>
+<div style="padding:0 56px 72px;display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+<sc-for list="{{ occasions }}" as="o" hint-placeholder-count="6">
+<a href="Everly Collectie.dc.html" style="display:flex;flex-direction:column;gap:12px;color:#2A1C14;text-decoration:none"><div style="aspect-ratio:1;border-radius:22px;background:{{ o.tint }};display:flex;align-items:center;justify-content:center"><span style="font:500 11px ui-monospace,Menlo,monospace;color:#8A7362">{{ o.img }}</span></div><div style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:17px">{{ o.label }}</strong><span style="font-size:14px;color:#6B5648">{{ o.when }}</span></div></a>
+</sc-for>
+</div>
+<div style="padding:0 56px 72px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:36px;font-weight:700">Per budget</h3><div style="display:flex;gap:8px"><sc-for list="{{ budgets }}" as="b" hint-placeholder-count="4"><button onClick="{{ b.pick }}" style="height:46px;padding:0 18px;border-radius:99px;border:1.5px solid {{ b.border }};background:{{ b.bg }};color:{{ b.color }};font:600 15px Figtree">{{ b.label }}</button></sc-for></div></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px"><sc-for list="{{ budgetProductsD }}" as="p" hint-placeholder-count="4"><dc-import name="EverlyCard" product="{{ p }}" size="l" hint-size="100%,440px"></dc-import></sc-for></div>
+</div>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="2">
+<div style="padding:0 56px 72px;display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:12px;padding-top:8px"><h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:32px;font-weight:700;line-height:1.1">{{ r.title }}</h3><span style="font-size:16px;line-height:1.5;color:#5C4739">{{ r.text }}</span><a href="Everly Collectie.dc.html" style="font-size:16px;font-weight:700">Bekijk alles →</a></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px"><sc-for list="{{ r.productsD }}" as="p" hint-placeholder-count="3"><dc-import name="EverlyCard" product="{{ p }}" size="l" hint-size="100%,440px"></dc-import></sc-for></div>
+</div>
+</sc-for>
+<div style="margin:0 56px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+<sc-for list="{{ guides }}" as="g" hint-placeholder-count="3">
+<a href="#" style="border-radius:24px;overflow:hidden;background:#F4EBE0;color:#2A1C14;text-decoration:none;display:flex;flex-direction:column"><div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F3E6D8 0 12px,#EEDFCE 12px 24px);display:flex;align-items:flex-end;padding:14px"><span style="font:500 11px ui-monospace,Menlo,monospace;color:#8A7362;background:rgba(251,247,242,.9);padding:4px 8px;border-radius:6px">{{ g.img }}</span></div><div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C2490A">Cadeaugids</span><strong style="font-family:'Bricolage Grotesque';font-size:22px;line-height:1.2">{{ g.title }}</strong></div></a>
+</sc-for>
+</div>
+<dc-import name="EverlyFooter" variant="desktop" hint-size="100%,380px"></dc-import>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { budget: 0 };
+  renderVals() {
+    const P = {
+      gezin: { title: 'Gezinsportret T-shirt', variant: '2–6 personen', rating: '4,9', price: 'vanaf €34,95', names: 'Lotte · Bram · Noor', badge: 'Bestseller', bg: '#F4EBE0', people: 'bruin:0,blond:1,rood:3', top: '#E25F0C' },
+      koppel: { title: 'Wij twee T-shirt', variant: 'Koppel', rating: '4,8', price: '€32,95', names: 'Emma & Jonas', bg: '#F6D9CF', shirt: '#FBF7F2', people: 'zwart:2,bruin:1', top: '#C2490A' },
+      oma: { title: 'Oma & Opa T-shirt', variant: 'Met kleinkinderen', rating: '5,0', price: 'vanaf €34,95', names: 'Oma Rita & Opa Jef', badge: 'Cadeautip', bg: '#E4ECE5', ink: '#2F5D4A', people: 'grijs:0,grijs:1,blond:3', top: '#2F5D4A' },
+      vriend: { title: 'Beste vriendinnen T-shirt', variant: '2–5 personen', rating: '4,9', price: '€32,95', names: 'Fien · Sara · Elif', bg: '#FFE6D5', shirt: '#2A1C14', ink: '#FBF7F2', people: 'blond:0,zwart:2,rood:3', top: '#F5B98F' },
+      kids: { title: 'Grote zus T-shirt', variant: 'Maat 2–12 jaar', rating: '4,9', price: '€24,95', names: 'Grote zus Mila', badge: 'Nieuw', bg: '#F6D9CF', ink: '#C2490A', round: true, people: 'rood:3,blond:3', top: '#E25F0C' },
+      set: { title: 'Mama & mini set', variant: 'Set van 2', rating: '4,9', price: '€54,95', names: 'Mama Jana & Lou', badge: 'Set', bg: '#FFE6D5', shirt: '#FBF7F2', people: 'bruin:1,bruin:1', top: '#C2490A' },
+      opa: { title: 'Beste opa T-shirt', variant: 'Met kleinkinderen', rating: '4,9', price: 'vanaf €34,95', names: 'Opa Luc · Finn · Juul', bg: '#EFE4D2', shirt: '#2F5D4A', ink: '#FBF7F2', people: 'grijs:1,zwart:2,bruin:2', top: '#F5B98F' },
+      zetel: { title: 'Ons gezin in de zetel', variant: '+ huisdier', rating: '4,8', price: 'vanaf €36,95', names: 'De Smetjes', bg: '#F4EBE0', shirt: '#2A1C14', ink: '#FBF7F2', people: 'blond:0,bruin:1,rood:3', top: '#F5B98F' }
+    };
+    const budgetSets = [[P.kids, P.koppel, P.vriend, P.gezin], [P.gezin, P.oma, P.opa, P.zetel], [P.set, P.zetel, P.gezin, P.oma]];
+    const labels = ['Onder €33', '€33 – €40', 'Sets & duo’s'];
+    const sel = a => ({ border: a ? '#2A1C14' : '#DCCDBB', bg: a ? '#2A1C14' : '#fff', color: a ? '#fff' : '#2A1C14' });
+    return {
+      occasions: [
+        { label: 'Verjaardag', when: 'Het hele jaar', tint: '#FFE6D5', img: 'foto · verjaardag' },
+        { label: 'Moederdag', when: '9 mei 2027 · A’pen 15 aug', tint: '#F6D9CF', img: 'foto · moederdag' },
+        { label: 'Vaderdag', when: '13 juni (BE) · 20 juni (NL)', tint: '#E4ECE5', img: 'foto · vaderdag' },
+        { label: 'Sinterklaas & kerst', when: '5–6 dec · 25 dec', tint: '#F4EBE0', img: 'foto · feestdagen' },
+        { label: 'Valentijn', when: '14 februari', tint: '#F6D9CF', img: 'foto · koppel' },
+        { label: 'Geboorte & zwanger', when: 'Grote zus, grote broer', tint: '#EFE4D2', img: 'foto · baby' }
+      ],
+      budgets: labels.map((label, i) => ({ label, pick: () => this.setState({ budget: i }), ...sel(i === this.state.budget) })),
+      budgetProducts: budgetSets[this.state.budget].slice(0, 2),
+      budgetProductsD: budgetSets[this.state.budget],
+      rows: [
+        { title: 'Voor de grootouders', text: 'Voor oma en opa die al alles hebben, behalve dit.', products: [P.oma, P.opa], productsD: [P.oma, P.opa, P.gezin] },
+        { title: 'Voor koppels', text: 'Voor jullie verjaardag, Valentijn of gewoon omdat het kan.', products: [P.koppel, P.vriend], productsD: [P.koppel, P.zetel, P.vriend] }
+      ],
+      guides: [
+        { title: '7 cadeaus voor grootouders die al alles hebben', img: 'sfeerfoto · oma en kleinkind' },
+        { title: 'Last minute: zo heb je het op tijd voor Sinterklaas', img: 'sfeerfoto · cadeau in schoen' },
+        { title: 'Bijpassende outfits voor de familiefoto', img: 'sfeerfoto · familiefoto' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

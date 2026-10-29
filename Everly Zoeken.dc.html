@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap"><h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">07 · Zoekresultaten &amp; 404</h1><span style="font-size:16px;color:#6B5648"><a href="Everly Cadeau-ideeen.dc.html">← Cadeau-ideeën</a> · <a href="Everly Account.dc.html">Account →</a> · Tabs zijn klikbaar</span></div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="7a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">7a</span><span style="font-size:14px;color:#6B5648">Mobiel · zoekresultaten</span></div>
+<div data-screen-label="Zoeken mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" announcement="{{ false }}" hint-size="100%,65px"></dc-import>
+<div style="padding:16px 20px 0;display:flex;flex-direction:column;gap:12px">
+<div style="height:52px;border-radius:99px;background:#fff;border:1.5px solid #2A1C14;display:flex;align-items:center;gap:10px;padding:0 8px 0 18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A1C14" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg><span style="flex:1;font-size:16px">oma</span><button aria-label="Wissen" style="width:40px;height:40px;border:0;border-radius:50%;background:#F4EBE0;font-size:18px;color:#2A1C14">×</button></div>
+<div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none"><sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="4"><span style="flex:0 0 auto;height:36px;padding:0 14px;border-radius:99px;background:#F4EBE0;font-size:14px;font-weight:600;display:flex;align-items:center">{{ s }}</span></sc-for></div>
+</div>
+<div style="margin-top:16px;display:flex;border-bottom:1px solid #EADFD2;padding:0 20px"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.pick }}" style="height:48px;padding:0 4px;margin-right:24px;border:0;background:none;border-bottom:3px solid {{ t.line }};font:700 15px Figtree;color:{{ t.color }}">{{ t.label }}</button></sc-for></div>
+<sc-if value="{{ isProducts }}" hint-placeholder-val="{{ true }}">
+<div style="padding:16px 20px 0;font-size:14px;color:#5C4739">{{ resultLine }}</div>
+<div style="padding:12px 20px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px 12px"><sc-for list="{{ results }}" as="p" hint-placeholder-count="4"><dc-import name="EverlyCard" product="{{ p }}" size="s" hint-size="100%,290px"></dc-import></sc-for></div>
+</sc-if>
+<sc-if value="{{ isPages }}" hint-placeholder-val="{{ false }}">
+<div style="padding:8px 20px 0;display:flex;flex-direction:column"><sc-for list="{{ pages }}" as="p" hint-placeholder-count="3"><a href="{{ p.href }}" style="padding:16px 0;border-bottom:1px solid #EADFD2;display:flex;flex-direction:column;gap:4px;color:#2A1C14;text-decoration:none"><span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C2490A">{{ p.type }}</span><strong style="font-size:16px">{{ p.title }}</strong><span style="font-size:14px;color:#5C4739;line-height:1.45">{{ p.text }}</span></a></sc-for></div>
+</sc-if>
+<div style="margin:28px 20px 40px;padding:18px;border-radius:18px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:6px"><strong style="font-size:15.5px">Niet gevonden wat je zoekt?</strong><span style="font-size:14.5px;color:#5C4739;line-height:1.45">Stuur ons je idee. We denken graag mee over een cadeau op maat.</span><a href="Everly Klantenservice.dc.html" style="font-size:14.5px;font-weight:700">Contacteer ons →</a></div>
+</div>
+</div>
+
+<div id="7b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">7b</span><span style="font-size:14px;color:#6B5648">Mobiel · 404</span></div>
+<div data-screen-label="404 mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" announcement="{{ false }}" hint-size="100%,65px"></dc-import>
+<div style="padding:48px 24px 0;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+<span style="font-family:'Bricolage Grotesque';font-size:96px;font-weight:700;color:#F26A0F;line-height:.9;letter-spacing:-.04em">404</span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1">Oei, dit cadeau is zoek</h2>
+<p style="margin:0;font-size:16px;line-height:1.5;color:#5C4739">De pagina bestaat niet (meer). Zoek hieronder verder of kies een van onze favorieten.</p>
+<div style="width:100%;height:52px;border-radius:99px;background:#fff;border:1.5px solid #DCCDBB;display:flex;align-items:center;gap:10px;padding:0 18px;color:#7A6455;font-size:15.5px;margin-top:6px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B5648" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>Zoek een cadeau…</div>
+<a href="Everly Home.dc.html" style="width:100%;height:54px;border-radius:99px;background:#C2490A;color:#fff;font:700 16px Figtree;display:flex;align-items:center;justify-content:center;text-decoration:none">Naar de homepage</a>
+</div>
+<div style="padding:36px 20px 0;display:flex;flex-direction:column;gap:12px"><strong style="font-family:'Bricolage Grotesque';font-size:20px">Populair</strong><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ popular }}" as="l" hint-placeholder-count="4"><a href="{{ l.href }}" style="height:42px;padding:0 16px;border-radius:99px;border:1.5px solid #DCCDBB;background:#fff;color:#2A1C14;font-size:14.5px;font-weight:600;display:flex;align-items:center;text-decoration:none">{{ l.label }}</a></sc-for></div></div>
+<div style="padding:28px 20px 40px;display:grid;grid-template-columns:1fr 1fr;gap:12px"><sc-for list="{{ favs }}" as="p" hint-placeholder-count="2"><dc-import name="EverlyCard" product="{{ p }}" size="s" hint-size="100%,290px"></dc-import></sc-for></div>
+</div>
+</div>
+
+<div id="7c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">7c</span><span style="font-size:14px;color:#6B5648">Desktop · zoekresultaten</span></div>
+<div data-screen-label="Zoeken desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="desktop" search-text="oma" hint-size="100%,115px"></dc-import>
+<div style="padding:40px 56px 0;display:flex;flex-direction:column;gap:18px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:44px;font-weight:700;letter-spacing:-.02em">Resultaten voor “oma”</h2>
+<div style="display:flex;gap:8px;align-items:center"><span style="font-size:15px;color:#6B5648;margin-right:4px">Bedoel je ook:</span><sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="4"><span style="height:38px;padding:0 16px;border-radius:99px;background:#F4EBE0;font-size:14.5px;font-weight:600;display:flex;align-items:center">{{ s }}</span></sc-for></div>
+</div>
+<div style="margin:24px 56px 0;display:flex;border-bottom:1px solid #EADFD2"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.pick }}" style="height:52px;padding:0 4px;margin-right:32px;border:0;background:none;border-bottom:3px solid {{ t.line }};font:700 16px Figtree;color:{{ t.color }}">{{ t.label }}</button></sc-for></div>
+<sc-if value="{{ isProducts }}" hint-placeholder-val="{{ true }}">
+<div style="padding:20px 56px 0;display:flex;justify-content:space-between;align-items:center"><span style="font-size:15px;color:#5C4739">{{ resultLine }}</span><button style="height:46px;padding:0 18px;border:1.5px solid #DCCDBB;border-radius:99px;background:#fff;font:600 15px Figtree;color:#2A1C14">Sorteer: Relevantie ▾</button></div>
+<div style="padding:20px 56px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px"><sc-for list="{{ results }}" as="p" hint-placeholder-count="4"><dc-import name="EverlyCard" product="{{ p }}" size="l" hint-size="100%,440px"></dc-import></sc-for></div>
+</sc-if>
+<sc-if value="{{ isPages }}" hint-placeholder-val="{{ false }}">
+<div style="padding:16px 56px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px"><sc-for list="{{ pages }}" as="p" hint-placeholder-count="3"><a href="{{ p.href }}" style="padding:24px;border-radius:20px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:6px;color:#2A1C14;text-decoration:none"><span style="font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C2490A">{{ p.type }}</span><strong style="font-size:18px">{{ p.title }}</strong><span style="font-size:15px;color:#5C4739;line-height:1.5">{{ p.text }}</span></a></sc-for></div>
+</sc-if>
+<div style="margin:48px 56px 72px;padding:28px 32px;border-radius:24px;background:#F4EBE0;display:flex;justify-content:space-between;align-items:center"><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-family:'Bricolage Grotesque';font-size:22px">Niet gevonden wat je zoekt?</strong><span style="font-size:16px;color:#5C4739">Stuur ons je idee. We denken graag mee over een cadeau op maat.</span></div><a href="Everly Klantenservice.dc.html" style="height:52px;padding:0 24px;border-radius:99px;border:1.5px solid #2A1C14;color:#2A1C14;font:700 16px Figtree;display:flex;align-items:center;text-decoration:none">Contacteer ons</a></div>
+<dc-import name="EverlyFooter" variant="desktop" hint-size="100%,380px"></dc-import>
+</div>
+</div>
+
+<div id="7d" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">7d</span><span style="font-size:14px;color:#6B5648">Desktop · 404</span></div>
+<div data-screen-label="404 desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="desktop" hint-size="100%,115px"></dc-import>
+<div style="padding:80px 56px 64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:18px;max-width:560px">
+<span style="font-family:'Bricolage Grotesque';font-size:160px;font-weight:700;color:#F26A0F;line-height:.85;letter-spacing:-.05em">404</span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:48px;font-weight:700;letter-spacing:-.02em;line-height:1.05">Oei, dit cadeau is zoek</h2>
+<p style="margin:0;font-size:18px;line-height:1.5;color:#5C4739">De pagina bestaat niet (meer). Zoek verder of kies een van onze favorieten.</p>
+<div style="display:flex;gap:10px;margin-top:6px"><div style="flex:1;height:56px;border-radius:99px;background:#fff;border:1.5px solid #DCCDBB;display:flex;align-items:center;gap:10px;padding:0 20px;color:#7A6455;font-size:16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B5648" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>Zoek een cadeau…</div><a href="Everly Home.dc.html" style="height:56px;padding:0 26px;border-radius:99px;background:#C2490A;color:#fff;font:700 16px Figtree;display:flex;align-items:center;text-decoration:none">Naar home</a></div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ popular }}" as="l" hint-placeholder-count="4"><a href="{{ l.href }}" style="height:42px;padding:0 16px;border-radius:99px;border:1.5px solid #DCCDBB;background:#fff;color:#2A1C14;font-size:14.5px;font-weight:600;display:flex;align-items:center;text-decoration:none">{{ l.label }}</a></sc-for></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px"><sc-for list="{{ favs }}" as="p" hint-placeholder-count="2"><dc-import name="EverlyCard" product="{{ p }}" size="l" hint-size="100%,440px"></dc-import></sc-for></div>
+</div>
+<dc-import name="EverlyFooter" variant="desktop" hint-size="100%,380px"></dc-import>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 0 };
+  renderVals() {
+    const R = [
+      { title: 'Oma & Opa T-shirt', variant: 'Met kleinkinderen', rating: '5,0', price: 'vanaf €34,95', names: 'Oma Rita & Opa Jef', badge: 'Cadeautip', bg: '#E4ECE5', ink: '#2F5D4A', people: 'grijs:0,grijs:1,blond:3', top: '#2F5D4A' },
+      { title: 'Liefste oma T-shirt', variant: 'Oma + kleinkinderen', rating: '4,9', price: 'vanaf €34,95', names: 'Oma Mieke · Lou · Mats', bg: '#FFE6D5', people: 'grijs:3,blond:0,bruin:1', top: '#C2490A' },
+      { title: 'Oma’s schatjes T-shirt', variant: 'Tot 6 kleinkinderen', rating: '4,8', price: 'vanaf €36,95', names: 'Noor · Finn · Juul · Mila', bg: '#F4EBE0', shirt: '#2F5D4A', ink: '#FBF7F2', people: 'blond:3,bruin:1,zwart:2,rood:3', top: '#F5B98F' },
+      { title: 'Oma &amp; mini set', variant: 'Set van 2', rating: '4,9', price: '€54,95', names: 'Oma Rita & Lou', badge: 'Set', bg: '#F6D9CF', shirt: '#FBF7F2', people: 'grijs:0,blond:3', top: '#E25F0C' }
+    ];
+    R[3].title = 'Oma & mini set';
+    const pages = [
+      { type: 'Cadeaugids', title: '7 cadeaus voor grootouders die al alles hebben', text: 'Onze favorieten voor oma en opa, met tips voor kapsels en namen.', href: 'Everly Cadeau-ideeen.dc.html' },
+      { type: 'Collectie', title: 'Cadeaus voor grootouders', text: 'Alle T-shirts met oma, opa en de kleinkinderen.', href: 'Everly Collectie.dc.html' },
+      { type: 'FAQ', title: 'Kan ik een grijs kapsel kiezen?', text: 'Ja, er zijn 8 haarkleuren waaronder grijs en wit.', href: 'Everly Klantenservice.dc.html' }
+    ];
+    const t = this.state.tab;
+    return {
+      suggestions: ['oma en opa', 'grootouders', 'oma t-shirt', 'kleinkinderen'],
+      tabs: [`Producten (${R.length})`, `Pagina’s (${pages.length})`].map((label, i) => ({ label, pick: () => this.setState({ tab: i }), line: i === t ? '#C2490A' : 'transparent', color: i === t ? '#2A1C14' : '#6B5648' })),
+      isProducts: t === 0, isPages: t === 1,
+      resultLine: `${R.length} cadeaus voor “oma”`,
+      results: R, pages,
+      favs: [R[0], { title: 'Gezinsportret T-shirt', variant: '2–6 personen', rating: '4,9', price: 'vanaf €34,95', names: 'Lotte · Bram · Noor', badge: 'Bestseller', bg: '#F4EBE0', people: 'bruin:0,blond:1,rood:3', top: '#E25F0C' }],
+      popular: [{ label: 'Gezin', href: 'Everly Collectie.dc.html' }, { label: 'Koppels', href: 'Everly Collectie.dc.html' }, { label: 'Cadeau-ideeën', href: 'Everly Cadeau-ideeen.dc.html' }, { label: 'Bestelling volgen', href: 'Everly Account.dc.html' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

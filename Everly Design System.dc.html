@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}</style>
+</helmet>
+<section style="padding:64px;display:flex;justify-content:center">
+<div id="0a" data-screen-label="Design system" style="width:1280px;background:#FBF7F2;border-radius:24px;padding:64px;display:flex;flex-direction:column;gap:56px;box-shadow:0 30px 60px -20px rgba(42,28,20,.2)">
+
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px"><img src="assets/everly-logo.png" alt="Everly" style="height:64px;align-self:flex-start"><h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:48px;font-weight:700;letter-spacing:-.02em">Design system · Shopify-thema</h1><span style="font-size:17px;color:#5C4739;max-width:640px">Warm, persoonlijk en helder. Het logo-oranje draagt het merk; een diepere tint maakt knoppen toegankelijk. Alle componenten zijn opgezet als Shopify-secties en -blokken.</span></div>
+<span style="font-size:15px;color:#6B5648;display:flex;flex-direction:column;gap:4px;text-align:right"><a href="Everly Home.dc.html">01 Home</a><a href="Everly Collectie.dc.html">02 Collectie</a><a href="Everly Product.dc.html">03 Product</a><a href="Everly Winkelmand.dc.html">04 Customizer &amp; winkelmand</a><a href="Everly Hoe werkt het.dc.html">05 Hoe werkt het</a><a href="Everly Cadeau-ideeen.dc.html">06 Cadeau-ideeën</a><a href="Everly Zoeken.dc.html">07 Zoeken &amp; 404</a><a href="Everly Account.dc.html">08 Account &amp; bestelling volgen</a><a href="Everly Klantenservice.dc.html">09 Klantenservice, FAQ &amp; info</a><a href="Everly Over ons.dc.html">10 Over ons</a></span>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:28px;font-weight:700">Kleuren</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="border-radius:20px;overflow:hidden;border:1px solid #EADFD2;background:#fff"><div style="height:120px;background:#F26A0F;display:flex;align-items:flex-end;padding:14px"><img src="assets/everly-logo.png" alt="" style="height:30px;filter:brightness(0) invert(1)"></div><div style="padding:14px;display:flex;flex-direction:column;gap:3px"><strong>Everly Oranje</strong><span style="font:500 13px ui-monospace,Menlo,monospace;color:#6B5648">#F26A0F · --color-brand</span><span style="font-size:13.5px;color:#5C4739">Logo, grote koppen, accenten. Witte tekst enkel ≥ 24px.</span></div></div>
+<div style="border-radius:20px;overflow:hidden;border:1px solid #EADFD2;background:#fff"><div style="height:120px;background:#C2490A;color:#fff;display:flex;align-items:flex-end;padding:14px;font-weight:700">Aa 4,8:1</div><div style="padding:14px;display:flex;flex-direction:column;gap:3px"><strong>Oranje Diep</strong><span style="font:500 13px ui-monospace,Menlo,monospace;color:#6B5648">#C2490A · --color-action</span><span style="font-size:13.5px;color:#5C4739">Primaire knoppen en links. Hover #9E3B07.</span></div></div>
+<div style="border-radius:20px;overflow:hidden;border:1px solid #EADFD2;background:#fff"><div style="height:120px;background:#2A1C14;color:#FBF7F2;display:flex;align-items:flex-end;padding:14px;font-weight:700">Aa 16:1</div><div style="padding:14px;display:flex;flex-direction:column;gap:3px"><strong>Espresso</strong><span style="font:500 13px ui-monospace,Menlo,monospace;color:#6B5648">#2A1C14 · --color-ink</span><span style="font-size:13.5px;color:#5C4739">Tekst, footer, secundaire knoppen. Body 2: #5C4739.</span></div></div>
+<div style="border-radius:20px;overflow:hidden;border:1px solid #EADFD2;background:#fff"><div style="height:120px;background:#2F5D4A;color:#fff;display:flex;align-items:flex-end;padding:14px;font-weight:700">Aa 7,4:1</div><div style="padding:14px;display:flex;flex-direction:column;gap:3px"><strong>Dennengroen · voorstel</strong><span style="font-size:13px;font-family:ui-monospace,Menlo,monospace;color:#6B5648">#2F5D4A · --color-trust</span><span style="font-size:13.5px;color:#5C4739">Levering, garantie, succes. Rustig tegengewicht voor oranje.</span></div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px">
+<div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:14px;background:#FBF7F2;border:1px solid #EADFD2"></div><strong style="font-size:14px">Crème</strong><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">#FBF7F2 · achtergrond</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:14px;background:#F4EBE0"></div><strong style="font-size:14px">Zand</strong><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">#F4EBE0 · vlakken</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:14px;background:#FFE6D5"></div><strong style="font-size:14px">Perzik · voorstel</strong><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">#FFE6D5 · tags, upsell</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:14px;background:#F6D9CF"></div><strong style="font-size:14px">Blos · voorstel</strong><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">#F6D9CF · koppels</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:14px;background:#E4ECE5"></div><strong style="font-size:14px">Salie · voorstel</strong><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">#E4ECE5 · levering</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:14px;background:#EADFD2"></div><strong style="font-size:14px">Lijn</strong><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">#EADFD2 · randen</span></div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1.3fr 1fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:28px;font-weight:700">Typografie</h2>
+<span style="font-size:15px;color:#5C4739">Bricolage Grotesque voor koppen: rond en warm, sluit aan bij het logo zonder het te imiteren. Figtree voor tekst en interface. Beide gratis via Google Fonts.</span>
+<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #EADFD2;padding-top:18px">
+<div style="display:grid;grid-template-columns:150px 1fr;align-items:baseline"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">Display · 68/38</span><span style="font-family:'Bricolage Grotesque';font-size:56px;font-weight:700;letter-spacing:-.025em;line-height:1">Voor wie je graag ziet</span></div>
+<div style="display:grid;grid-template-columns:150px 1fr;align-items:baseline"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">H2 · 40/26</span><span style="font-family:'Bricolage Grotesque';font-size:40px;font-weight:700;letter-spacing:-.015em">Bestsellers</span></div>
+<div style="display:grid;grid-template-columns:150px 1fr;align-items:baseline"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">H3 · 24/20</span><span style="font-family:'Bricolage Grotesque';font-size:24px;font-weight:700">Goed om te weten</span></div>
+<div style="display:grid;grid-template-columns:150px 1fr;align-items:baseline"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">Body L · 17–20</span><span style="font-size:18px;line-height:1.5">Kies kapsels, haarkleuren en namen. Wij tekenen jullie samen.</span></div>
+<div style="display:grid;grid-template-columns:150px 1fr;align-items:baseline"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">Body · 15–16</span><span style="font-size:16px;line-height:1.5;color:#5C4739">Met de hand gemaakt in 3–5 werkdagen en geleverd in heel België en Nederland.</span></div>
+<div style="display:grid;grid-template-columns:150px 1fr;align-items:baseline"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B5648">Label · 13 bold</span><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Binnenkort</span></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:28px;font-weight:700">Knoppen &amp; bediening</h2>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><button style="height:56px;padding:0 28px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 17px Figtree">Personaliseer →</button><span style="font-size:13px;color:#6B5648">Primair · 56px (L 60)</span></div>
+<div style="display:flex;gap:10px;align-items:center"><button style="height:56px;padding:0 28px;border:0;border-radius:99px;background:#9E3B07;color:#fff;font:700 17px Figtree">Personaliseer →</button><span style="font-size:13px;color:#6B5648">Primair · hover/actief</span></div>
+<div style="display:flex;gap:10px;align-items:center"><button style="height:52px;padding:0 24px;border:1.5px solid #2A1C14;border-radius:99px;background:transparent;color:#2A1C14;font:700 16px Figtree">Bekijk bestsellers</button><button style="height:44px;padding:0 18px;border:0;border-radius:99px;background:#2A1C14;color:#fff;font:700 14.5px Figtree">+ Toevoegen</button></div>
+<div style="display:flex;gap:6px;align-items:center"><span style="height:44px;width:48px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:700">2</span><span style="height:44px;width:48px;border-radius:12px;border:1.5px solid #2A1C14;background:#2A1C14;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700">4</span><span style="width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px rgba(42,28,20,.18);margin-left:10px"></span><span style="width:44px;height:44px;border-radius:50%;background:#2F5D4A;box-shadow:0 0 0 3px #FBF7F2,0 0 0 5px #2A1C14"></span><span style="font-size:13px;color:#6B5648;margin-left:8px">Keuze &amp; swatch · min. 44px</span></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><span style="background:#FFE6D5;color:#9E3B07;font-size:13px;font-weight:600;padding:6px 12px;border-radius:99px">Nieuw</span><span style="background:#fff;border:1px solid #EADFD2;font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:99px">Bestseller</span><span style="background:#fff;font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:99px;color:#2F5D4A;border:1px solid #EADFD2">● Live voorbeeld</span><span style="font-size:12px;font-weight:700;padding:5px 9px;border:1px solid #DCCDBB;border-radius:7px;background:#fff">Bancontact</span><span style="font-size:12px;font-weight:700;padding:5px 9px;border:1px solid #DCCDBB;border-radius:7px;background:#fff">iDEAL</span></div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:300px 1fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:28px;font-weight:700">Productkaart</h2>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;aspect-ratio:4/5;border-radius:20px;background:#F4EBE0;display:flex;align-items:center;justify-content:center">
+<div style="width:66%;aspect-ratio:1;border-radius:18px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 20px -10px rgba(42,28,20,.3)">
+<div style="display:flex;gap:6px;align-items:flex-end">
+<div style="display:flex;flex-direction:column;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(#6B4226 0 40%,#F2CDB0 40%)"></div><div style="width:34px;height:13px;border-radius:18px 18px 3px 3px;background:#E25F0C;margin-top:-2px"></div></div>
+<div style="display:flex;flex-direction:column;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(#E3B65B 0 40%,#D9A27E 40%)"></div><div style="width:34px;height:13px;border-radius:18px 18px 3px 3px;background:#E25F0C;margin-top:-2px"></div></div>
+<div style="display:flex;flex-direction:column;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(#B5532A 0 40%,#F6D9C4 40%)"></div><div style="width:34px;height:13px;border-radius:18px 18px 3px 3px;background:#E25F0C;margin-top:-2px"></div></div>
+</div>
+<span style="font-family:'Bricolage Grotesque';font-size:13px;font-weight:600">Lotte · Bram · Noor</span>
+</div>
+<span style="position:absolute;top:14px;left:14px;background:#fff;font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:99px">Bestseller</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:600">Gezinsportret T-shirt</span><span style="font-size:14px;color:#6B5648"><span style="color:#E25F0C">★</span> 4,9 (812) · 2–6 personen</span><span style="font-size:17px;font-weight:700">vanaf €34,95</span></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:28px;font-weight:700">Regels voor de catalogus</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="padding:18px;border-radius:18px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:6px"><strong>Altijd een gepersonaliseerde preview</strong><span style="font-size:14.5px;line-height:1.5;color:#5C4739">De kaart toont het product met een voorbeeldportret en namen, nooit een leeg product. Eén afbeelding per product via metafield <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">everly.preview_image</span>.</span></div>
+<div style="padding:18px;border-radius:18px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:6px"><strong>Producttype bepaalt de vorm</strong><span style="font-size:14.5px;line-height:1.5;color:#5C4739">T-shirt, hoodie, mok, print en kids delen dezelfde kaart, PDP en winkelmand. Nieuwe types krijgen enkel een nieuwe foto en een filterwaarde.</span></div>
+<div style="padding:18px;border-radius:18px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:6px"><strong>Personalisatie als line item properties</strong><span style="font-size:14.5px;line-height:1.5;color:#5C4739">De customizer stuurt <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">Personen</span>, per persoon kapsel/haarkleur/naam en <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">_preview_url</span> mee. De winkelmand toont ze automatisch.</span></div>
+<div style="padding:18px;border-radius:18px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:6px"><strong>Filters via Search &amp; Discovery</strong><span style="font-size:14.5px;line-height:1.5;color:#5C4739">Voor wie, Gelegenheid en Producttype als productmetafields; Prijs als standaardfilter. Lege types (“binnenkort”) blijven verborgen tot er producten zijn.</span></div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:28px;font-weight:700">Spacing &amp; vormen</h2>
+<div style="display:flex;gap:14px;align-items:flex-end">
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:4px;height:4px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">4</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:8px;height:8px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">8</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:12px;height:12px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">12</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:16px;height:16px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">16</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:20px;height:20px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">20</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:24px;height:24px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">24</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:40px;height:40px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">40</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:56px;height:56px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">56</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:88px;height:88px;background:#F26A0F"></div><span style="font:500 12px ui-monospace,Menlo,monospace">88</span></div>
+</div>
+<span style="font-size:14.5px;line-height:1.5;color:#5C4739">Paginamarge 20px mobiel, 56px desktop. Sectie-afstand 40px mobiel, 88px desktop. Raster: 2 kolommen mobiel, 3–4 desktop, gap 12–24px.</span>
+<div style="display:flex;gap:14px">
+<div style="width:72px;height:56px;border:1.5px solid #2A1C14;border-radius:12px;display:flex;align-items:center;justify-content:center;font:500 12px ui-monospace,Menlo,monospace">12</div>
+<div style="width:72px;height:56px;border:1.5px solid #2A1C14;border-radius:16px;display:flex;align-items:center;justify-content:center;font:500 12px ui-monospace,Menlo,monospace">16</div>
+<div style="width:72px;height:56px;border:1.5px solid #2A1C14;border-radius:24px;display:flex;align-items:center;justify-content:center;font:500 12px ui-monospace,Menlo,monospace">24</div>
+<div style="width:72px;height:56px;border:1.5px solid #2A1C14;border-radius:99px;display:flex;align-items:center;justify-content:center;font:500 12px ui-monospace,Menlo,monospace">pill</div>
+</div>
+<span style="font-size:14.5px;color:#5C4739">12 velden &amp; keuzes · 16 kaarten mobiel · 24 kaarten desktop · pill voor knoppen en tags.</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:28px;font-weight:700">Shopify-secties</h2>
+<div style="display:flex;flex-direction:column;border-top:1px solid #EADFD2">
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">announcement-bar</span><span style="color:#5C4739">Verzenddrempel en levertijd, 1–3 blokken</span></div>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">hero-personalize</span><span style="color:#5C4739">Kop, tekst, CTA, afbeelding, optionele previewkaart</span></div>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">recipient-picker</span><span style="color:#5C4739">Blokken: label, afbeelding, collectielink</span></div>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">featured-collection</span><span style="color:#5C4739">Gebruikt snippet card-product</span></div>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">how-it-works</span><span style="color:#5C4739">3 stapblokken, herbruikbaar op PDP</span></div>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">reviews · trust-strip</span><span style="color:#5C4739">Review-app embed, beloftes, betaalmethodes</span></div>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">main-product</span><span style="color:#5C4739">Blokken: varianten, aantal personen, levertijd, trust, FAQ, knop naar customizer</span></div>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:11px 0;border-bottom:1px solid #EADFD2;font-size:14.5px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">cart-drawer · main-cart</span><span style="color:#5C4739">Verzendbalk, properties, upsell via product-aanbevelingen</span></div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+</body>
+</html>

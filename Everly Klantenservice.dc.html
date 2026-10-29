@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap"><h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">09 · Klantenservice, FAQ &amp; infopagina’s</h1><span style="font-size:16px;color:#6B5648"><a href="Everly Account.dc.html">← Account</a> · <a href="Everly Over ons.dc.html">Over ons →</a> · FAQ-categorieën, vragen en infopagina’s zijn klikbaar</span></div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="9a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">9a</span><span style="font-size:14px;color:#6B5648">Mobiel · contact &amp; FAQ</span></div>
+<div data-screen-label="Klantenservice mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" announcement="{{ false }}" hint-size="100%,65px"></dc-import>
+<div style="padding:28px 20px 0;display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.05">Hoe kunnen we helpen?</h2>
+<div style="height:52px;border-radius:99px;background:#fff;border:1.5px solid #DCCDBB;display:flex;align-items:center;gap:10px;padding:0 18px;color:#7A6455;font-size:15.5px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B5648" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>Zoek in de veelgestelde vragen</div>
+</div>
+<div style="padding:16px 20px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<a href="Everly Account.dc.html" style="min-height:72px;padding:14px;border-radius:16px;background:#E4ECE5;color:#1F3F32;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none"><strong style="font-size:15px">Bestelling volgen</strong><span style="font-size:13px">Met je bestelnummer</span></a>
+<a href="#9c" style="min-height:72px;padding:14px;border-radius:16px;background:#FFE6D5;color:#5A2A06;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none"><strong style="font-size:15px">Levertijden</strong><span style="font-size:13px">BE &amp; NL</span></a>
+</div>
+<div style="padding:28px 0 0;display:flex;flex-direction:column;gap:12px">
+<h3 style="margin:0;padding:0 20px;font-family:'Bricolage Grotesque';font-size:22px;font-weight:700">Veelgestelde vragen</h3>
+<div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 20px"><sc-for list="{{ cats }}" as="c" hint-placeholder-count="5"><button onClick="{{ c.pick }}" style="flex:0 0 auto;height:42px;padding:0 16px;border-radius:99px;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};font:600 14.5px Figtree">{{ c.label }}</button></sc-for></div>
+<div style="padding:0 20px;display:flex;flex-direction:column">
+<sc-for list="{{ faq }}" as="f" hint-placeholder-count="4">
+<div style="border-bottom:1px solid #EADFD2"><button onClick="{{ f.toggle }}" style="width:100%;min-height:56px;border:0;background:none;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;font:600 15.5px Figtree;color:#2A1C14;padding:0">{{ f.q }}<span style="font-size:22px;font-weight:400;color:#C2490A">{{ f.sign }}</span></button><sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 16px;font-size:15px;line-height:1.55;color:#5C4739">{{ f.a }}</p></sc-if></div>
+</sc-for>
+</div>
+</div>
+<div style="margin:32px 0 0;padding:28px 20px;background:#F4EBE0;display:flex;flex-direction:column;gap:12px">
+<h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:22px;font-weight:700">Neem contact op</h3>
+<span style="font-size:15px;color:#5C4739">Ma–vr 9–17u · we antwoorden binnen 1 werkdag</span>
+<sc-for list="{{ channels }}" as="c" hint-placeholder-count="3"><div style="min-height:64px;padding:12px 16px;border-radius:16px;background:#fff;display:flex;align-items:center;gap:14px"><span style="width:40px;height:40px;border-radius:50%;background:{{ c.tint }};display:flex;align-items:center;justify-content:center;font-weight:700;color:{{ c.ink }};font-size:15px">{{ c.icon }}</span><div style="display:flex;flex-direction:column;flex:1"><strong style="font-size:15.5px">{{ c.title }}</strong><span style="font-size:13.5px;color:#5C4739">{{ c.text }}</span></div><span style="color:#C2490A;font-size:18px">›</span></div></sc-for>
+</div>
+<div style="padding:28px 20px 40px;display:flex;flex-direction:column;gap:12px">
+<h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:22px;font-weight:700">Stuur een bericht</h3>
+<div style="height:52px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 16px;display:flex;align-items:center;font-size:15.5px;color:#7A6455">Je naam</div>
+<div style="height:52px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 16px;display:flex;align-items:center;font-size:15.5px;color:#7A6455">E-mailadres</div>
+<div style="height:52px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 16px;display:flex;align-items:center;font-size:15.5px;color:#7A6455">Bestelnummer (optioneel)</div>
+<div style="height:120px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:14px 16px;font-size:15.5px;color:#7A6455">Je vraag</div>
+<button style="height:54px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 16px Figtree">Verstuur</button>
+</div>
+<dc-import name="EverlyFooter" variant="mobile" hint-size="100%,760px"></dc-import>
+</div>
+</div>
+
+<div id="9b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">9b</span><span style="font-size:14px;color:#6B5648">Desktop · contact &amp; FAQ</span></div>
+<div data-screen-label="Klantenservice desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="desktop" hint-size="100%,115px"></dc-import>
+<div style="padding:56px 56px 40px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:56px;font-weight:700;letter-spacing:-.025em">Hoe kunnen we helpen?</h2>
+<div style="width:640px;height:58px;border-radius:99px;background:#fff;border:1.5px solid #DCCDBB;display:flex;align-items:center;gap:12px;padding:0 22px;color:#7A6455;font-size:16.5px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B5648" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>Zoek in de veelgestelde vragen</div>
+<div style="display:flex;gap:10px"><a href="Everly Account.dc.html" style="height:44px;padding:0 18px;border-radius:99px;background:#E4ECE5;color:#1F3F32;font-weight:600;font-size:15px;display:flex;align-items:center;text-decoration:none">Bestelling volgen</a><a href="#9d" style="height:44px;padding:0 18px;border-radius:99px;background:#FFE6D5;color:#5A2A06;font-weight:600;font-size:15px;display:flex;align-items:center;text-decoration:none">Levertijden</a><a href="#9d" style="height:44px;padding:0 18px;border-radius:99px;background:#F4EBE0;color:#2A1C14;font-weight:600;font-size:15px;display:flex;align-items:center;text-decoration:none">Blij-belofte</a></div>
+</div>
+<div style="padding:0 56px 72px;display:grid;grid-template-columns:260px 1fr 380px;gap:40px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:4px"><sc-for list="{{ cats }}" as="c" hint-placeholder-count="5"><button onClick="{{ c.pick }}" style="height:48px;padding:0 16px;border-radius:12px;border:0;background:{{ c.sideBg }};text-align:left;font:{{ c.weight }} 15.5px Figtree;color:#2A1C14">{{ c.label }}</button></sc-for></div>
+<div style="display:flex;flex-direction:column;border-top:1px solid #EADFD2">
+<sc-for list="{{ faq }}" as="f" hint-placeholder-count="4">
+<div style="border-bottom:1px solid #EADFD2"><button onClick="{{ f.toggle }}" style="width:100%;min-height:64px;border:0;background:none;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;font:600 17px Figtree;color:#2A1C14;padding:0">{{ f.q }}<span style="font-size:24px;font-weight:400;color:#C2490A">{{ f.sign }}</span></button><sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#5C4739;max-width:620px">{{ f.a }}</p></sc-if></div>
+</sc-for>
+</div>
+<div style="padding:28px;border-radius:24px;background:#F4EBE0;display:flex;flex-direction:column;gap:12px">
+<strong style="font-family:'Bricolage Grotesque';font-size:24px">Neem contact op</strong>
+<span style="font-size:15px;color:#5C4739">Ma–vr 9–17u · antwoord binnen 1 werkdag</span>
+<sc-for list="{{ channels }}" as="c" hint-placeholder-count="3"><div style="min-height:64px;padding:12px 16px;border-radius:16px;background:#fff;display:flex;align-items:center;gap:14px"><span style="width:40px;height:40px;border-radius:50%;background:{{ c.tint }};display:flex;align-items:center;justify-content:center;font-weight:700;color:{{ c.ink }};font-size:15px">{{ c.icon }}</span><div style="display:flex;flex-direction:column;flex:1"><strong style="font-size:15.5px">{{ c.title }}</strong><span style="font-size:13.5px;color:#5C4739">{{ c.text }}</span></div></div></sc-for>
+<div style="display:flex;flex-direction:column;gap:8px;margin-top:6px"><div style="height:48px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 14px;display:flex;align-items:center;font-size:15px;color:#7A6455">E-mailadres</div><div style="height:96px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:12px 14px;font-size:15px;color:#7A6455">Je vraag</div><button style="height:52px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 16px Figtree">Verstuur</button></div>
+</div>
+</div>
+<dc-import name="EverlyFooter" variant="desktop" hint-size="100%,380px"></dc-import>
+</div>
+</div>
+
+<div id="9c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">9c</span><span style="font-size:14px;color:#6B5648">Mobiel · infopagina-sjabloon</span></div>
+<div data-screen-label="Infopagina mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" announcement="{{ false }}" hint-size="100%,65px"></dc-import>
+<div style="padding:12px 20px 0"><div style="height:48px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 16px;display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:600"><span>{{ page.title }}</span><span style="color:#6B5648">▾</span></div></div>
+<div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;color:#6B5648">Klantenservice / {{ page.title }}</span><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.05">{{ page.title }}</h2><p style="margin:0;font-size:16px;line-height:1.55;color:#5C4739">{{ page.intro }}</p></div>
+<div style="margin:18px 20px 0;border-radius:16px;overflow:hidden;border:1px solid #EADFD2;background:#fff">
+<sc-for list="{{ page.table }}" as="r" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;padding:12px 14px;border-bottom:1px solid #EADFD2;font-size:13.5px;background:{{ r.bg }};font-weight:{{ r.weight }}"><span>{{ r.a }}</span><span>{{ r.b }}</span><span>{{ r.c }}</span></div></sc-for>
+</div>
+<div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:18px"><sc-for list="{{ page.blocks }}" as="b" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:17px">{{ b.h }}</strong><span style="font-size:15px;line-height:1.55;color:#5C4739">{{ b.p }}</span></div></sc-for></div>
+<div style="margin:24px 20px 40px;padding:16px;border-radius:16px;background:#E4ECE5;font-size:14.5px;line-height:1.5;color:#1F3F32"><strong>Vraag niet beantwoord?</strong> Mail ons op hallo@everly.be, we helpen je graag.</div>
+<dc-import name="EverlyFooter" variant="mobile" hint-size="100%,760px"></dc-import>
+</div>
+</div>
+
+<div id="9d" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">9d</span><span style="font-size:14px;color:#6B5648">Desktop · infopagina’s (klik in het menu)</span></div>
+<div data-screen-label="Infopagina desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="desktop" hint-size="100%,115px"></dc-import>
+<div style="padding:48px 56px 80px;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start">
+<aside style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#6B5648;padding:0 16px 10px">Klantenservice</span><sc-for list="{{ pagesNav }}" as="n" hint-placeholder-count="5"><button onClick="{{ n.pick }}" style="height:48px;padding:0 16px;border-radius:12px;border:0;background:{{ n.bg }};text-align:left;font:{{ n.weight }} 15.5px Figtree;color:#2A1C14">{{ n.label }}</button></sc-for></aside>
+<article style="display:flex;flex-direction:column;gap:22px;max-width:780px">
+<span style="font-size:14px;color:#6B5648">Klantenservice / {{ page.title }}</span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:48px;font-weight:700;letter-spacing:-.02em;line-height:1">{{ page.title }}</h2>
+<p style="margin:0;font-size:19px;line-height:1.55;color:#5C4739">{{ page.intro }}</p>
+<div style="border-radius:20px;overflow:hidden;border:1px solid #EADFD2;background:#fff"><sc-for list="{{ page.table }}" as="r" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;padding:16px 22px;border-bottom:1px solid #EADFD2;font-size:15.5px;background:{{ r.bg }};font-weight:{{ r.weight }}"><span>{{ r.a }}</span><span>{{ r.b }}</span><span>{{ r.c }}</span></div></sc-for></div>
+<sc-for list="{{ page.blocks }}" as="b" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:8px"><strong style="font-family:'Bricolage Grotesque';font-size:22px">{{ b.h }}</strong><span style="font-size:17px;line-height:1.6;color:#5C4739">{{ b.p }}</span></div></sc-for>
+<div style="padding:20px 24px;border-radius:18px;background:#E4ECE5;font-size:16px;line-height:1.5;color:#1F3F32;display:flex;justify-content:space-between;align-items:center;gap:16px"><span><strong>Vraag niet beantwoord?</strong> We helpen je graag verder.</span><a href="#9b" style="height:46px;padding:0 20px;border-radius:99px;background:#2F5D4A;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;text-decoration:none">Contact</a></div>
+</article>
+</div>
+<dc-import name="EverlyFooter" variant="desktop" hint-size="100%,380px"></dc-import>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat: 0, open: 0, page: 0 };
+  renderVals() {
+    const st = this.state;
+    const FAQ = [
+      ['Bestellen & ontwerpen', [['Hoe lang kan ik mijn ontwerp nog aanpassen?', 'Tot 2 uur na je bestelling via de link in je bevestigingsmail. Daarna gaat je cadeau in productie.'], ['Worden mijn ontwerpen bewaard?', 'Ja. In de ontwerpstudio wordt alles automatisch bewaard. Met een account vind je je ontwerpen later terug.'], ['Kijken jullie mijn ontwerp na?', 'Elk ontwerp wordt door ons team gecontroleerd op spelfouten en drukkwaliteit. Bij twijfel mailen we je eerst.'], ['Kan ik een huisdier toevoegen?', 'Bij een deel van onze ontwerpen wel: je kiest uit een hond, kat of konijn. Je ziet het in de ontwerpstudio.']]],
+      ['Levering', [['Hoe lang duurt de levering?', 'We maken je cadeau in 3–5 werkdagen. Daarna levert bpost of PostNL in 1–2 werkdagen.'], ['Kan ik naar een ander adres laten leveren?', 'Zeker, vul bij het afrekenen gewoon het adres van de ontvanger in. We sturen nooit een prijs mee.'], ['Leveren jullie buiten België en Nederland?', 'Voorlopig leveren we enkel in België en Nederland.'], ['Wat als ik niet thuis ben?', 'bpost en PostNL leveren dan bij de buren of in een afhaalpunt in de buurt.']]],
+      ['Retour & blij-belofte', [['Kan ik een gepersonaliseerd cadeau retourneren?', 'Omdat het voor jou gemaakt is, valt het buiten het herroepingsrecht. Met onze blij-belofte maken we het opnieuw of krijg je je geld terug als er iets mis is.'], ['Wat valt onder de blij-belofte?', 'Drukfouten, beschadiging, een verkeerde maat door onze fout, of als je echt niet blij bent. Meld het binnen 30 dagen.'], ['Hoe meld ik een probleem?', 'Stuur een foto naar hallo@everly.be met je bestelnummer. Je krijgt binnen 1 werkdag antwoord.']]],
+      ['Betalen', [['Hoe kan ik betalen?', 'Met Bancontact, iDEAL, Visa, Mastercard, PayPal en Apple Pay. Alle betalingen zijn beveiligd.'], ['Krijg ik een factuur?', 'Ja, je factuur staat in je bevestigingsmail en in je account.'], ['Kan ik een kortingscode gebruiken?', 'Vul je code in de winkelmand of bij het afrekenen in.']]],
+      ['Product & verzorging', [['Van welk materiaal zijn de T-shirts?', '100% biologisch katoen, 180 g/m². Zacht en stevig, en het krimpt nauwelijks.'], ['Hoe was ik mijn T-shirt?', 'Binnenstebuiten op 30 graden, niet in de droogkast. Strijk niet over de print.'], ['Hoe vallen de maten?', 'Normaal. Twijfel je, kijk dan in de maattabel op de productpagina.']]]
+    ];
+    const cur = FAQ[st.cat][1];
+    const sel = a => ({ border: a ? '#2A1C14' : '#DCCDBB', bg: a ? '#2A1C14' : '#fff', color: a ? '#fff' : '#2A1C14', sideBg: a ? '#F4EBE0' : 'transparent', weight: a ? 700 : 500 });
+    const head = (a, b, c) => ({ a, b, c, bg: '#F4EBE0', weight: 700 });
+    const row = (a, b, c) => ({ a, b, c, bg: '#fff', weight: 400 });
+    const PAGES = [
+      { title: 'Levering & levertijden', intro: 'Elk cadeau wordt voor jou gemaakt in 3–5 werkdagen. Daarna is het 1–2 werkdagen onderweg.', table: [head('Land', 'Kosten', 'Levertijd'), row('België · bpost', '€4,95', '1–2 werkdagen'), row('Nederland · PostNL', '€5,95', '1–2 werkdagen'), row('Vanaf €50', 'Gratis', 'BE & NL')], blocks: [{ h: 'Wanneer wordt mijn cadeau verzonden?', p: 'Zodra het klaar is. Je krijgt dan een mail met de track & trace-code.' }, { h: 'Op tijd voor de feestdagen', p: 'Voor Sinterklaas bestel je best vóór 25 november, voor kerst vóór 15 december.' }, { h: 'Rechtstreeks naar de ontvanger', p: 'Vul het adres van de ontvanger in. Er zit nooit een prijs of factuur in het pakket.' }] },
+      { title: 'Retourneren & blij-belofte', intro: 'Gepersonaliseerde cadeaus kunnen we niet zomaar terugnemen. Daarom geven we je onze blij-belofte.', table: [head('Situatie', 'Oplossing', 'Termijn'), row('Drukfout of schade', 'Gratis opnieuw', '30 dagen'), row('Verkeerde maat (onze fout)', 'Gratis omruilen', '30 dagen'), row('Niet blij', 'Opnieuw of geld terug', '30 dagen')], blocks: [{ h: 'Hoe werkt het?', p: 'Stuur een foto en je bestelnummer naar hallo@everly.be. Je hoeft niets terug te sturen.' }, { h: 'Niet-gepersonaliseerde producten', p: 'Cadeauverpakking en accessoires kan je binnen 14 dagen retourneren, ongebruikt.' }] },
+      { title: 'Betalen', intro: 'Je betaalt veilig via Shopify Payments. We bewaren nooit je kaartgegevens.', table: [head('Methode', 'Land', 'Kosten'), row('Bancontact', 'België', 'Gratis'), row('iDEAL', 'Nederland', 'Gratis'), row('Visa, Mastercard, PayPal, Apple Pay', 'BE & NL', 'Gratis')], blocks: [{ h: 'Factuur', p: 'Je factuur met btw staat in je bevestigingsmail en in je account.' }, { h: 'Bestellen als bedrijf?', p: 'Vul je btw-nummer in bij het afrekenen. Voor grote aantallen maken we graag een offerte.' }] },
+      { title: 'Maattabel', intro: 'Onze T-shirts vallen normaal. Meet een T-shirt dat goed zit en vergelijk.', table: [head('Maat', 'Borstbreedte', 'Lengte'), row('S', '49 cm', '70 cm'), row('M', '52 cm', '72 cm'), row('L', '55 cm', '74 cm')], blocks: [{ h: 'Kids', p: 'Kids T-shirts zijn er van 2 tot 12 jaar. Twijfel je, kies dan een maat groter.' }] },
+      { title: 'Privacy & cookies', intro: 'We gebruiken je gegevens enkel om je bestelling te maken en te leveren.', table: [head('Gegeven', 'Waarom', 'Bewaard'), row('Namen in ontwerp', 'Om te drukken', '2 jaar'), row('Adres', 'Om te leveren', 'Wettelijke termijn'), row('E-mail', 'Updates & factuur', 'Tot je uitschrijft')], blocks: [{ h: 'Je rechten', p: 'Je kan je gegevens altijd inkijken, laten aanpassen of verwijderen via hallo@everly.be.' }] }
+    ];
+    return {
+      cats: FAQ.map(([label], i) => ({ label, pick: () => this.setState({ cat: i, open: 0 }), ...sel(i === st.cat) })),
+      faq: cur.map(([q, a], i) => ({ q, a, open: st.open === i, sign: st.open === i ? '−' : '+', toggle: () => this.setState({ open: st.open === i ? -1 : i }) })),
+      channels: [{ icon: '@', title: 'hallo@everly.be', text: 'Antwoord binnen 1 werkdag', tint: '#FFE6D5', ink: '#9E3B07' }, { icon: 'W', title: 'WhatsApp', text: '+32 470 12 34 56', tint: '#E4ECE5', ink: '#2F5D4A' }, { icon: '☏', title: 'Bel ons', text: '09 123 45 67 · ma–vr 9–17u', tint: '#F4EBE0', ink: '#2A1C14' }],
+      page: PAGES[st.page],
+      pagesNav: PAGES.map((p, i) => ({ label: p.title, pick: () => this.setState({ page: i }), bg: i === st.page ? '#F4EBE0' : 'transparent', weight: i === st.page ? 700 : 500 }))
+    };
+  }
+}
+</script>
+</body>
+</html>

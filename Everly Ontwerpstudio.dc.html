@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&family=DM+Serif+Display&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}input:focus{outline:2px solid #C2490A;outline-offset:1px}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
+<h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">04 · Ontwerpstudio</h1>
+<span style="font-size:16px;color:#6B5648"><a href="Everly Product.dc.html">← Product</a> · <a href="Everly Winkelmand.dc.html">Winkelmand →</a> · Alles is klikbaar; mobiel en desktop delen dezelfde staat</span>
+</div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="5a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">5a</span><span style="font-size:14px;color:#6B5648">Mobiel · 390</span></div>
+<div data-screen-label="Ontwerpstudio mobiel" style="width:390px;height:844px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column">
+<header style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px 8px 8px;border-bottom:1px solid #EADFD2">
+<a href="Everly Product.dc.html" style="height:44px;padding:0 10px;display:flex;align-items:center;font-size:14.5px;font-weight:600;color:#2A1C14">← Terug</a>
+<div style="display:flex;align-items:center;gap:8px"><img src="assets/everly-logo.png" alt="Everly" style="height:28px"><span style="font-size:12px;font-weight:700;color:#6B5648;border-left:1px solid #DCCDBB;padding-left:8px">Ontwerpstudio</span></div>
+<span style="white-space:nowrap;padding-right:4px;font-size:13px;color:#2F5D4A;font-weight:600">● Bewaard</span>
+</header>
+<div style="display:flex;gap:6px;padding:10px 16px 8px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="4"><button onClick="{{ s.go }}" style="flex:1;border:0;background:none;padding:4px 0;display:flex;flex-direction:column;gap:6px;text-align:left"><span style="height:4px;width:100%;border-radius:2px;background:{{ s.bar }}"></span><span style="font:600 12.5px Figtree;color:{{ s.color }}">{{ s.label }}</span></button></sc-for>
+</div>
+<div style="flex:0 0 272px;margin:0 16px;border-radius:20px;background:#F4EBE0;display:flex;align-items:center;justify-content:center;position:relative">
+<div style="width:224px;height:236px;border-radius:34px 34px 16px 16px;background:{{ shirtHex }};box-shadow:0 18px 36px -18px rgba(42,28,20,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:0 8px;transition:background .25s">
+<div style="display:flex;gap:4px;align-items:flex-end;justify-content:center">
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.focus }}" aria-label="{{ p.label }} aanpassen" style="border:0;background:none;padding:2px;border-radius:10px;outline:{{ p.outline }};outline-offset:2px;display:flex;flex-direction:column;align-items:center;gap:3px">
+<dc-import name="EverlyFigure" size="{{ p.sizeM }}" hair="{{ p.hair }}" hair-color="{{ p.hairHex }}" skin="{{ p.skinHex }}" glasses="{{ p.glasses }}" body="{{ bodyHex }}" hint-size="46px,66px"></dc-import>
+<span style="font-family:{{ nameFont }};font-weight:{{ nameWeight }};font-size:{{ nameSizeM }};color:{{ inkHex }};line-height:1;min-height:10px">{{ p.name }}</span>
+</button></sc-for>
+</div>
+<sc-if value="{{ hasLine }}" hint-placeholder-val="{{ false }}"><span style="font-family:{{ nameFont }};font-weight:{{ nameWeight }};font-size:{{ lineSizeM }};color:{{ inkHex }};text-align:center;line-height:1.1">{{ line }}</span></sc-if>
+</div>
+<span style="position:absolute;top:10px;left:10px;background:#fff;font-size:11.5px;font-weight:700;padding:5px 9px;border-radius:99px;color:#2F5D4A">● Live voorbeeld</span>
+</div>
+<div style="flex:1;overflow:auto;padding:18px 20px 20px;display:flex;flex-direction:column;gap:16px">
+<sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Wie staat erop?</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">Tot 6 personen. De prijs past zich aan.</span></div>
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4">
+<div style="padding:10px 12px 12px;border-radius:16px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:50%;background:#F4EBE0;display:flex;align-items:center;justify-content:center"><dc-import name="EverlyFigure" size="{{ 34 }}" show-body="{{ false }}" hair="{{ p.hair }}" hair-color="{{ p.hairHex }}" skin="{{ p.skinHex }}" glasses="{{ p.glasses }}" hint-size="34px,28px"></dc-import></div><strong style="flex:1;font-size:15.5px">{{ p.label }}</strong><sc-if value="{{ p.canRemove }}" hint-placeholder-val="{{ true }}"><button onClick="{{ p.remove }}" aria-label="Verwijderen" style="width:44px;height:44px;margin:-6px -6px -6px 0;border:0;background:none;color:#8A7362;font-size:22px">×</button></sc-if></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px"><sc-for list="{{ p.types }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="height:44px;border-radius:12px;border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }};font:600 12px Figtree;padding:0 2px;letter-spacing:-.01em">{{ t.label }}</button></sc-for></div>
+</div>
+</sc-for>
+<sc-if value="{{ canAdd }}" hint-placeholder-val="{{ true }}"><button onClick="{{ addPerson }}" style="min-height:52px;border-radius:16px;border:1.5px dashed #C9B6A2;background:none;font:700 15px Figtree;color:#C2490A;display:flex;align-items:center;justify-content:center;gap:6px">+ Persoon toevoegen <span style="font-weight:500;color:#6B5648">· {{ addPrice }}</span></button></sc-if>
+</sc-if>
+<sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Hoe zien ze eruit?</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">Kies per persoon. Tik ook op een figuurtje in het voorbeeld.</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.pickTab }}" style="height:44px;padding:0 14px 0 6px;border-radius:99px;border:1.5px solid {{ p.tabBorder }};background:{{ p.tabBg }};display:flex;align-items:center;gap:6px;font:600 14px Figtree;color:#2A1C14"><dc-import name="EverlyFigure" size="{{ 30 }}" show-body="{{ false }}" hair="{{ p.hair }}" hair-color="{{ p.hairHex }}" skin="{{ p.skinHex }}" glasses="{{ p.glasses }}" hint-size="30px,24px"></dc-import>{{ p.label }}</button></sc-for></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Kapsel</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><sc-for list="{{ styleOpts }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="height:96px;border-radius:14px;border:{{ o.border }};background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:600 13.5px Figtree;color:#2A1C14"><dc-import name="EverlyFigure" size="{{ 54 }}" show-body="{{ false }}" hair="{{ o.key }}" hair-color="{{ activeHair }}" skin="{{ activeSkin }}" hint-size="54px,44px"></dc-import>{{ o.label }}</button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Haarkleur: <span style="font-weight:400">{{ activeHairName }}</span></span>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ hcOpts }}" as="o" hint-placeholder-count="5"><button aria-label="{{ o.label }}" onClick="{{ o.pick }}" style="width:44px;height:44px;border-radius:50%;border:0;background:{{ o.h }};box-shadow:{{ o.ring }}"></button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Huidskleur</span>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ skinOpts }}" as="o" hint-placeholder-count="6"><button aria-label="{{ o.label }}" onClick="{{ o.pick }}" style="width:44px;height:44px;border-radius:50%;border:0;background:{{ o.h }};box-shadow:{{ o.ring }}"></button></sc-for></div></div>
+<button onClick="{{ toggleGlasses }}" style="min-height:56px;padding:0 14px;border-radius:14px;border:1px solid #EADFD2;background:#fff;display:flex;align-items:center;justify-content:space-between;font:600 15px Figtree;color:#2A1C14">Met bril<span style="width:46px;height:28px;border-radius:99px;background:{{ switchBg }};position:relative;transition:background .2s"><span style="position:absolute;top:3px;left:{{ knobX }};width:22px;height:22px;border-radius:50%;background:#fff;transition:left .2s"></span></span></button>
+<sc-if value="{{ hasNextPerson }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNextPerson }}" style="align-self:flex-start;border:0;background:none;padding:8px 0;font:700 15px Figtree;color:#C2490A">Volgende persoon: {{ nextPersonLabel }} →</button></sc-if>
+</sc-if>
+<sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Namen &amp; tekst</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">De naam komt onder elk figuurtje. Maximaal 12 tekens.</span></div>
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4">
+<label style="display:flex;flex-direction:column;gap:6px"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600">Persoon {{ p.num }} · {{ p.typeLabel }}<span style="font-weight:500;color:#8A7362">{{ p.count }}</span></span><input value="{{ p.name }}" onChange="{{ p.setName }}" placeholder="Naam" style="height:50px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 14px;font:500 16px Figtree;color:#2A1C14"></label>
+</sc-for>
+<label style="display:flex;flex-direction:column;gap:6px;margin-top:4px"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600">Extra regel <span style="font-weight:500;color:#8A7362">optioneel · {{ lineCount }}</span></span><input value="{{ line }}" onChange="{{ setLine }}" placeholder="bv. Familie Peeters · sinds 2014" style="height:50px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 14px;font:500 16px Figtree;color:#2A1C14"></label>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Lettertype</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><sc-for list="{{ fontOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:84px;border-radius:14px;border:{{ o.border }};background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#2A1C14"><span style="font-family:{{ o.f }};font-weight:{{ o.w }};font-size:{{ o.size }};line-height:1">Lotte</span><span style="font:600 12.5px Figtree;color:#5C4739">{{ o.n }}</span></button></sc-for></div></div>
+</sc-if>
+<sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Klopt alles?</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">We drukken precies wat je in het voorbeeld ziet.</span></div>
+<div style="border-radius:16px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column">
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:10px;padding:8px 6px 8px 12px;border-bottom:1px solid #F1E8DD"><div style="flex:1;display:flex;flex-direction:column;gap:1px"><strong style="font-size:15px">{{ p.label }}</strong><span style="font-size:13px;color:#5C4739">{{ p.summary }}</span></div><button onClick="{{ p.edit }}" style="height:44px;padding:0 10px;border:0;background:none;font:700 14px Figtree;color:#C2490A">Wijzig</button></div></sc-for>
+<div style="display:flex;align-items:center;gap:10px;padding:8px 6px 8px 12px"><div style="flex:1;display:flex;flex-direction:column;gap:1px"><strong style="font-size:15px">Gezinsportret T-shirt</strong><span style="font-size:13px;color:#5C4739">{{ shirtSummary }}</span></div><a href="Everly Product.dc.html" style="height:44px;padding:0 10px;display:flex;align-items:center;font:700 14px Figtree">Wijzig</a></div>
+</div>
+<sc-if value="{{ hasMissing }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;line-height:1.45;color:#9E3B07;background:#FFE6D5;border-radius:12px;padding:10px 12px">{{ missingMsg }}</span></sc-if>
+<button onClick="{{ toggleCheck }}" style="border:0;background:none;padding:4px 0;display:flex;align-items:flex-start;gap:12px;text-align:left;font:500 15px Figtree;color:#2A1C14;line-height:1.4"><span style="flex:0 0 26px;height:26px;border-radius:8px;border:2px solid {{ checkBorder }};background:{{ checkBg }};color:#fff;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ checkMark }}</span>Ik heb de namen en de spelling gecontroleerd</button>
+<div style="padding:12px 14px;border-radius:14px;background:#E4ECE5;font-size:14px;line-height:1.45;color:#2F5D4A"><strong>Toch iets vergeten?</strong> Tot 2 uur na je bestelling kan je je ontwerp nog aanpassen.</div>
+</sc-if>
+</div>
+<div style="padding:12px 16px 22px;background:#fff;border-top:1px solid #EADFD2;display:flex;align-items:center;gap:10px;box-shadow:0 -8px 20px -12px rgba(42,28,20,.2)">
+<div style="flex:1;display:flex;flex-direction:column;min-width:0"><span style="font-size:12.5px;color:#6B5648">{{ summary }}</span><strong style="font-size:17px">{{ price }}</strong></div>
+<sc-if value="{{ notFirst }}" hint-placeholder-val="{{ false }}"><button onClick="{{ prev }}" aria-label="Vorige stap" style="flex-shrink:0;width:52px;height:52px;border-radius:50%;border:1.5px solid #DCCDBB;background:#fff;font-size:18px;color:#2A1C14">←</button></sc-if>
+<sc-if value="{{ notLast }}" hint-placeholder-val="{{ true }}"><button onClick="{{ next }}" style="flex-shrink:0;white-space:nowrap;height:52px;padding:0 18px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 15px Figtree">{{ nextLabel }} →</button></sc-if>
+<sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><a href="Everly Winkelmand.dc.html" style="flex-shrink:0;white-space:nowrap;height:52px;padding:0 18px;border-radius:99px;background:#C2490A;color:#fff;font:700 15px Figtree;display:flex;align-items:center;text-decoration:none">In winkelmand</a></sc-if>
+<sc-if value="{{ notReady }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCheck }}" style="flex-shrink:0;white-space:nowrap;height:52px;padding:0 18px;border:0;border-radius:99px;background:#E2D5C5;color:#6B5648;font:700 15px Figtree">In winkelmand</button></sc-if>
+</div>
+</div>
+</div>
+
+<div id="5b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">5b</span><span style="font-size:14px;color:#6B5648">Desktop · 1440</span></div>
+<div data-screen-label="Ontwerpstudio desktop" style="width:1440px;height:860px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column">
+<header style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 40px;border-bottom:1px solid #EADFD2">
+<a href="Everly Product.dc.html" style="font-size:15px;font-weight:600;color:#2A1C14">← Terug naar de shop</a>
+<div style="display:flex;align-items:center;gap:12px"><img src="assets/everly-logo.png" alt="Everly" style="height:38px"><span style="font-size:13px;font-weight:700;color:#6B5648;border-left:1px solid #DCCDBB;padding-left:12px">Ontwerpstudio</span></div>
+<div style="display:flex;justify-content:flex-end;gap:20px;font-size:14px;color:#5C4739"><span style="color:#2F5D4A;font-weight:600">● Automatisch bewaard</span><span style="white-space:nowrap">Hulp nodig? <a href="Everly Klantenservice.dc.html">Klantenservice</a></span></div>
+</header>
+<div style="flex:1;min-height:0;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;padding:24px 40px 28px">
+<div style="border-radius:28px;background:#F4EBE0;display:flex;align-items:center;justify-content:center;position:relative">
+<div style="width:500px;height:520px;border-radius:64px 64px 26px 26px;background:{{ shirtHex }};box-shadow:0 24px 50px -20px rgba(42,28,20,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 20px;transition:background .25s">
+<div style="display:flex;gap:8px;align-items:flex-end;justify-content:center">
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.focus }}" aria-label="{{ p.label }} aanpassen" style="border:0;background:none;padding:4px;border-radius:14px;outline:{{ p.outline }};outline-offset:2px;display:flex;flex-direction:column;align-items:center;gap:6px">
+<dc-import name="EverlyFigure" size="{{ p.sizeD }}" hair="{{ p.hair }}" hair-color="{{ p.hairHex }}" skin="{{ p.skinHex }}" glasses="{{ p.glasses }}" body="{{ bodyHex }}" hint-size="84px,120px"></dc-import>
+<span style="font-family:{{ nameFont }};font-weight:{{ nameWeight }};font-size:{{ nameSizeD }};color:{{ inkHex }};line-height:1;min-height:16px">{{ p.name }}</span>
+</button></sc-for>
+</div>
+<sc-if value="{{ hasLine }}" hint-placeholder-val="{{ false }}"><span style="font-family:{{ nameFont }};font-weight:{{ nameWeight }};font-size:{{ lineSizeD }};color:{{ inkHex }};text-align:center;line-height:1.1">{{ line }}</span></sc-if>
+</div>
+<span style="position:absolute;top:20px;left:20px;background:#fff;font-size:14px;font-weight:700;padding:8px 14px;border-radius:99px;color:#2F5D4A">● Live voorbeeld · klik op een figuurtje om het aan te passen</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+<div style="display:flex;gap:8px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="4"><button onClick="{{ s.go }}" style="flex:1;border:0;background:none;padding:4px 0;display:flex;flex-direction:column;gap:8px;text-align:left"><span style="height:4px;width:100%;border-radius:2px;background:{{ s.bar }}"></span><span style="font:600 14px Figtree;color:{{ s.color }}">{{ s.label }}</span></button></sc-for>
+</div>
+<div style="flex:1;min-height:0;overflow:auto;padding-right:8px;display:flex;flex-direction:column;gap:18px">
+<sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Wie staat erop?</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">Tot 6 personen. De prijs past zich aan.</span></div>
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4">
+<div style="padding:10px 12px 12px;border-radius:16px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:50%;background:#F4EBE0;display:flex;align-items:center;justify-content:center"><dc-import name="EverlyFigure" size="{{ 34 }}" show-body="{{ false }}" hair="{{ p.hair }}" hair-color="{{ p.hairHex }}" skin="{{ p.skinHex }}" glasses="{{ p.glasses }}" hint-size="34px,28px"></dc-import></div><strong style="flex:1;font-size:15.5px">{{ p.label }}</strong><sc-if value="{{ p.canRemove }}" hint-placeholder-val="{{ true }}"><button onClick="{{ p.remove }}" aria-label="Verwijderen" style="width:44px;height:44px;margin:-6px -6px -6px 0;border:0;background:none;color:#8A7362;font-size:22px">×</button></sc-if></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px"><sc-for list="{{ p.types }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="height:44px;border-radius:12px;border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }};font:600 12px Figtree;padding:0 2px;letter-spacing:-.01em">{{ t.label }}</button></sc-for></div>
+</div>
+</sc-for>
+<sc-if value="{{ canAdd }}" hint-placeholder-val="{{ true }}"><button onClick="{{ addPerson }}" style="min-height:52px;border-radius:16px;border:1.5px dashed #C9B6A2;background:none;font:700 15px Figtree;color:#C2490A;display:flex;align-items:center;justify-content:center;gap:6px">+ Persoon toevoegen <span style="font-weight:500;color:#6B5648">· {{ addPrice }}</span></button></sc-if>
+</sc-if>
+<sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Hoe zien ze eruit?</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">Kies per persoon. Tik ook op een figuurtje in het voorbeeld.</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.pickTab }}" style="height:44px;padding:0 14px 0 6px;border-radius:99px;border:1.5px solid {{ p.tabBorder }};background:{{ p.tabBg }};display:flex;align-items:center;gap:6px;font:600 14px Figtree;color:#2A1C14"><dc-import name="EverlyFigure" size="{{ 30 }}" show-body="{{ false }}" hair="{{ p.hair }}" hair-color="{{ p.hairHex }}" skin="{{ p.skinHex }}" glasses="{{ p.glasses }}" hint-size="30px,24px"></dc-import>{{ p.label }}</button></sc-for></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Kapsel</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><sc-for list="{{ styleOpts }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="height:96px;border-radius:14px;border:{{ o.border }};background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:600 13.5px Figtree;color:#2A1C14"><dc-import name="EverlyFigure" size="{{ 54 }}" show-body="{{ false }}" hair="{{ o.key }}" hair-color="{{ activeHair }}" skin="{{ activeSkin }}" hint-size="54px,44px"></dc-import>{{ o.label }}</button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Haarkleur: <span style="font-weight:400">{{ activeHairName }}</span></span>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ hcOpts }}" as="o" hint-placeholder-count="5"><button aria-label="{{ o.label }}" onClick="{{ o.pick }}" style="width:44px;height:44px;border-radius:50%;border:0;background:{{ o.h }};box-shadow:{{ o.ring }}"></button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Huidskleur</span>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ skinOpts }}" as="o" hint-placeholder-count="6"><button aria-label="{{ o.label }}" onClick="{{ o.pick }}" style="width:44px;height:44px;border-radius:50%;border:0;background:{{ o.h }};box-shadow:{{ o.ring }}"></button></sc-for></div></div>
+<button onClick="{{ toggleGlasses }}" style="min-height:56px;padding:0 14px;border-radius:14px;border:1px solid #EADFD2;background:#fff;display:flex;align-items:center;justify-content:space-between;font:600 15px Figtree;color:#2A1C14">Met bril<span style="width:46px;height:28px;border-radius:99px;background:{{ switchBg }};position:relative;transition:background .2s"><span style="position:absolute;top:3px;left:{{ knobX }};width:22px;height:22px;border-radius:50%;background:#fff;transition:left .2s"></span></span></button>
+<sc-if value="{{ hasNextPerson }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNextPerson }}" style="align-self:flex-start;border:0;background:none;padding:8px 0;font:700 15px Figtree;color:#C2490A">Volgende persoon: {{ nextPersonLabel }} →</button></sc-if>
+</sc-if>
+<sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Namen &amp; tekst</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">De naam komt onder elk figuurtje. Maximaal 12 tekens.</span></div>
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4">
+<label style="display:flex;flex-direction:column;gap:6px"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600">Persoon {{ p.num }} · {{ p.typeLabel }}<span style="font-weight:500;color:#8A7362">{{ p.count }}</span></span><input value="{{ p.name }}" onChange="{{ p.setName }}" placeholder="Naam" style="height:50px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 14px;font:500 16px Figtree;color:#2A1C14"></label>
+</sc-for>
+<label style="display:flex;flex-direction:column;gap:6px;margin-top:4px"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600">Extra regel <span style="font-weight:500;color:#8A7362">optioneel · {{ lineCount }}</span></span><input value="{{ line }}" onChange="{{ setLine }}" placeholder="bv. Familie Peeters · sinds 2014" style="height:50px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 14px;font:500 16px Figtree;color:#2A1C14"></label>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Lettertype</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><sc-for list="{{ fontOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:84px;border-radius:14px;border:{{ o.border }};background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#2A1C14"><span style="font-family:{{ o.f }};font-weight:{{ o.w }};font-size:{{ o.size }};line-height:1">Lotte</span><span style="font:600 12.5px Figtree;color:#5C4739">{{ o.n }}</span></button></sc-for></div></div>
+</sc-if>
+<sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700;letter-spacing:-.01em">Klopt alles?</h2><span style="font-size:14.5px;color:#5C4739;line-height:1.4">We drukken precies wat je in het voorbeeld ziet.</span></div>
+<div style="border-radius:16px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column">
+<sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:10px;padding:8px 6px 8px 12px;border-bottom:1px solid #F1E8DD"><div style="flex:1;display:flex;flex-direction:column;gap:1px"><strong style="font-size:15px">{{ p.label }}</strong><span style="font-size:13px;color:#5C4739">{{ p.summary }}</span></div><button onClick="{{ p.edit }}" style="height:44px;padding:0 10px;border:0;background:none;font:700 14px Figtree;color:#C2490A">Wijzig</button></div></sc-for>
+<div style="display:flex;align-items:center;gap:10px;padding:8px 6px 8px 12px"><div style="flex:1;display:flex;flex-direction:column;gap:1px"><strong style="font-size:15px">Gezinsportret T-shirt</strong><span style="font-size:13px;color:#5C4739">{{ shirtSummary }}</span></div><a href="Everly Product.dc.html" style="height:44px;padding:0 10px;display:flex;align-items:center;font:700 14px Figtree">Wijzig</a></div>
+</div>
+<sc-if value="{{ hasMissing }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;line-height:1.45;color:#9E3B07;background:#FFE6D5;border-radius:12px;padding:10px 12px">{{ missingMsg }}</span></sc-if>
+<button onClick="{{ toggleCheck }}" style="border:0;background:none;padding:4px 0;display:flex;align-items:flex-start;gap:12px;text-align:left;font:500 15px Figtree;color:#2A1C14;line-height:1.4"><span style="flex:0 0 26px;height:26px;border-radius:8px;border:2px solid {{ checkBorder }};background:{{ checkBg }};color:#fff;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ checkMark }}</span>Ik heb de namen en de spelling gecontroleerd</button>
+<div style="padding:12px 14px;border-radius:14px;background:#E4ECE5;font-size:14px;line-height:1.45;color:#2F5D4A"><strong>Toch iets vergeten?</strong> Tot 2 uur na je bestelling kan je je ontwerp nog aanpassen.</div>
+</sc-if>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid #EADFD2">
+<div style="flex:1;display:flex;flex-direction:column"><span style="font-size:14px;color:#6B5648">{{ summary }}</span><strong style="font-size:22px">{{ price }}</strong></div>
+<sc-if value="{{ notFirst }}" hint-placeholder-val="{{ false }}"><button onClick="{{ prev }}" style="flex-shrink:0;white-space:nowrap;height:56px;padding:0 22px;border-radius:99px;border:1.5px solid #DCCDBB;background:#fff;font:700 16px Figtree;color:#2A1C14">← Vorige</button></sc-if>
+<sc-if value="{{ notLast }}" hint-placeholder-val="{{ true }}"><button onClick="{{ next }}" style="flex-shrink:0;white-space:nowrap;height:56px;padding:0 28px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 17px Figtree">{{ nextLabel }} →</button></sc-if>
+<sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><a href="Everly Winkelmand.dc.html" style="flex-shrink:0;white-space:nowrap;height:56px;padding:0 28px;border-radius:99px;background:#C2490A;color:#fff;font:700 17px Figtree;display:flex;align-items:center;text-decoration:none">Toevoegen aan winkelmand →</a></sc-if>
+<sc-if value="{{ notReady }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleCheck }}" style="flex-shrink:0;white-space:nowrap;height:56px;padding:0 28px;border:0;border-radius:99px;background:#E2D5C5;color:#6B5648;font:700 17px Figtree">Toevoegen aan winkelmand →</button></sc-if>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startStep&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;],&quot;default&quot;:&quot;1&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;shirtColor&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Wit&quot;,&quot;Crème&quot;,&quot;Perzik&quot;,&quot;Dennengroen&quot;,&quot;Espresso&quot;],&quot;default&quot;:&quot;Wit&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;size&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;XS&quot;,&quot;S&quot;,&quot;M&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;XXL&quot;],&quot;default&quot;:&quot;M&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = {
+    step: Number(this.props.startStep ?? 1), active: 0, checked: false, line: '', font: 0,
+    people: [
+      { type: 0, skin: 1, hair: 'lang', hc: 1, glasses: false, name: 'Lotte' },
+      { type: 0, skin: 2, hair: 'kort', hc: 2, glasses: true, name: 'Bram' },
+      { type: 2, skin: 1, hair: 'staartjes', hc: 3, glasses: false, name: 'Noor' },
+      { type: 3, skin: 0, hair: 'krullen', hc: 2, glasses: false, name: 'Mats' }
+    ]
+  };
+  upd(i, patch) { this.setState(s => ({ people: s.people.map((p, j) => j === i ? { ...p, ...patch } : p) })); }
+  renderVals() {
+    const st = this.state, n = st.people.length;
+    const colors = [
+      { name: 'Wit', hex: '#FFFFFF', ink: '#2A1C14', top: '#E25F0C' },
+      { name: 'Crème', hex: '#F3E3CB', ink: '#2A1C14', top: '#C2490A' },
+      { name: 'Perzik', hex: '#F7C6A3', ink: '#2A1C14', top: '#2F5D4A' },
+      { name: 'Dennengroen', hex: '#2F5D4A', ink: '#FBF7F2', top: '#F5B98F' },
+      { name: 'Espresso', hex: '#2A1C14', ink: '#FBF7F2', top: '#E25F0C' }
+    ];
+    const c = colors.find(x => x.name === (this.props.shirtColor ?? 'Wit')) || colors[0];
+    const size = this.props.size ?? 'M';
+    const prices = { 1: 32.95, 2: 34.95, 3: 34.95, 4: 37.95, 5: 37.95, 6: 39.95 };
+    const eur = v => '€' + v.toFixed(2).replace('.', ',');
+    const SKIN = ['#F6D9C4', '#F2CDB0', '#D9A27E', '#B07850', '#8C5A3C', '#5E3B26'];
+    const HC = [['Zwart', '#2A1C14'], ['Bruin', '#6B4226'], ['Blond', '#E3B65B'], ['Rood', '#B5532A'], ['Grijs', '#B9B3AC']];
+    const STY = [['kort', 'Kort'], ['lang', 'Lang'], ['krullen', 'Krullen'], ['staartjes', 'Staartjes'], ['knot', 'Knot'], ['kaal', 'Kaal']];
+    const TYPES = [['Volwassene', 1], ['Tiener', .9], ['Kind', .78], ['Baby', .64]];
+    const FONTS = [{ n: 'Speels', f: "'Bricolage Grotesque'", w: 700, k: 1 }, { n: 'Klassiek', f: "'DM Serif Display'", w: 400, k: 1.05 }, { n: 'Handgeschreven', f: 'Caveat', w: 700, k: 1.3 }];
+    const F = FONTS[st.font];
+    const baseD = { 1: 150, 2: 128, 3: 110, 4: 94, 5: 80, 6: 68 }[n];
+    const baseM = { 1: 74, 2: 64, 3: 56, 4: 48, 5: 40, 6: 34 }[n];
+    const sel = a => ({ border: a ? '#2A1C14' : '#DCCDBB', bg: a ? '#2A1C14' : '#fff', color: a ? '#fff' : '#2A1C14' });
+    const ring = a => a ? '0 0 0 3px #FBF7F2, 0 0 0 5px #2A1C14' : 'inset 0 0 0 1px rgba(42,28,20,.18)';
+    const ai = Math.min(st.active, n - 1), A = st.people[ai];
+    const styleName = k => STY.find(s => s[0] === k)[1];
+    const persons = st.people.map((p, i) => {
+      const sc = TYPES[p.type][1];
+      return {
+        i, num: i + 1, name: p.name, label: p.name || `Persoon ${i + 1}`, typeLabel: TYPES[p.type][0],
+        skinHex: SKIN[p.skin], hairHex: HC[p.hc][1], hair: p.hair, glasses: p.glasses,
+        sizeD: Math.round(baseD * sc), sizeM: Math.round(baseM * sc),
+        outline: st.step === 2 && ai === i ? '2px dashed #C2490A' : '2px solid transparent',
+        focus: () => this.setState({ active: i, step: 2 }),
+        canRemove: n > 1,
+        remove: () => this.setState(s => ({ people: s.people.filter((_, j) => j !== i), active: Math.max(0, s.active > i ? s.active - 1 : Math.min(s.active, s.people.length - 2)) })),
+        types: TYPES.map(([label], k) => ({ label, pick: () => this.upd(i, { type: k }), ...sel(k === p.type) })),
+        tabBorder: i === ai ? '#2A1C14' : '#DCCDBB', tabBg: i === ai ? '#fff' : 'transparent',
+        pickTab: () => this.setState({ active: i }),
+        setName: e => this.upd(i, { name: e.target.value.slice(0, 12) }),
+        count: `${p.name.length}/12`,
+        summary: `${TYPES[p.type][0]} · ${styleName(p.hair).toLowerCase()}, ${HC[p.hc][0].toLowerCase()}${p.glasses ? ' · bril' : ''}`,
+        edit: () => this.setState({ active: i, step: 2 })
+      };
+    });
+    const missing = st.people.filter(p => !p.name.trim()).length;
+    const labels = ['Personen', 'Uiterlijk', 'Namen', 'Controle'];
+    return {
+      shirtHex: c.hex, inkHex: c.ink, bodyHex: c.top,
+      persons,
+      steps: labels.map((l, k) => ({ label: `${k + 1} ${l}`, bar: k + 1 < st.step ? '#2F5D4A' : k + 1 === st.step ? '#C2490A' : '#E2D5C5', color: k + 1 < st.step ? '#2F5D4A' : k + 1 === st.step ? '#2A1C14' : '#8A7362', go: () => this.setState({ step: k + 1 }) })),
+      s1: st.step === 1, s2: st.step === 2, s3: st.step === 3, s4: st.step === 4,
+      canAdd: n < 6,
+      addPrice: n < 6 ? (prices[n + 1] > prices[n] ? `+${eur(prices[n + 1] - prices[n])}` : 'zelfde prijs') : '',
+      addPerson: () => this.setState(s => ({ people: [...s.people, { type: 0, skin: 1, hair: 'kort', hc: 1, glasses: false, name: '' }] })),
+      styleOpts: STY.map(([key, label]) => ({ key, label, pick: () => this.upd(ai, { hair: key }), border: key === A.hair ? '2px solid #2A1C14' : '2px solid #EADFD2' })),
+      activeHair: HC[A.hc][1], activeSkin: SKIN[A.skin], activeHairName: HC[A.hc][0],
+      hcOpts: HC.map(([label, h], k) => ({ label, h, pick: () => this.upd(ai, { hc: k }), ring: ring(k === A.hc) })),
+      skinOpts: SKIN.map((h, k) => ({ label: `Huidskleur ${k + 1}`, h, pick: () => this.upd(ai, { skin: k }), ring: ring(k === A.skin) })),
+      toggleGlasses: () => this.upd(ai, { glasses: !A.glasses }),
+      switchBg: A.glasses ? '#2F5D4A' : '#DCCDBB', knobX: A.glasses ? '21px' : '3px',
+      hasNextPerson: ai < n - 1, nextPersonLabel: ai < n - 1 ? (st.people[ai + 1].name || `Persoon ${ai + 2}`) : '',
+      goNextPerson: () => this.setState({ active: ai + 1 }),
+      line: st.line, hasLine: !!st.line.trim(), lineCount: `${st.line.length}/32`,
+      setLine: e => this.setState({ line: e.target.value.slice(0, 32) }),
+      fontOpts: FONTS.map((f, k) => ({ n: f.n, f: f.f, w: f.w, size: Math.round(24 * f.k) + 'px', pick: () => this.setState({ font: k }), border: k === st.font ? '2px solid #2A1C14' : '2px solid #EADFD2' })),
+      nameFont: F.f, nameWeight: F.w,
+      nameSizeM: Math.round(10 * F.k) + 'px', nameSizeD: Math.round(17 * F.k) + 'px',
+      lineSizeM: Math.round(12 * F.k) + 'px', lineSizeD: Math.round(24 * F.k) + 'px',
+      hasMissing: missing > 0,
+      missingMsg: missing === 1 ? '1 persoon heeft nog geen naam. Dat mag: dan drukken we geen naam onder dat figuurtje.' : `${missing} personen hebben nog geen naam. Dat mag: dan drukken we geen naam onder die figuurtjes.`,
+      checked: st.checked, toggleCheck: () => this.setState(s => ({ checked: !s.checked, step: 4 })),
+      checkBorder: st.checked ? '#2F5D4A' : '#BFAE9C', checkBg: st.checked ? '#2F5D4A' : '#fff', checkMark: st.checked ? '✓' : '',
+      shirtSummary: `${c.name} · maat ${size}`,
+      summary: `${n} ${n === 1 ? 'persoon' : 'personen'} · ${c.name} · ${size}`,
+      price: eur(prices[n]),
+      notFirst: st.step > 1, notLast: st.step < 4,
+      ready: st.step === 4 && st.checked, notReady: st.step === 4 && !st.checked,
+      nextLabel: ['Uiterlijk', 'Namen', 'Controleren'][st.step - 1] || '',
+      prev: () => this.setState(s => ({ step: Math.max(1, s.step - 1) })),
+      next: () => this.setState(s => ({ step: Math.min(4, s.step + 1) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
+<h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">03 · Productpagina</h1>
+<span style="font-size:16px;color:#6B5648"><a href="Everly Collectie.dc.html">← Collectie</a> · <a href="Everly Ontwerpstudio.dc.html">Ontwerpstudio →</a> · Kleur, aantal personen en FAQ zijn klikbaar</span>
+</div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="3a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">3a</span><span style="font-size:14px;color:#6B5648">Mobiel · 390</span></div>
+<div data-screen-label="Product mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);position:relative">
+<header style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid #EADFD2">
+<div style="display:flex;gap:2px"><button aria-label="Menu" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A1C14" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><button aria-label="Zoeken" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#2A1C14" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg></button></div>
+<img src="assets/everly-logo.png" alt="Everly" style="height:34px">
+<div style="display:flex;gap:2px"><button aria-label="Account" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#2A1C14" stroke-width="1.8"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"></path></svg></button><button aria-label="Winkelmand" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A1C14" stroke-width="1.8" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg></button></div>
+</header>
+<div style="position:relative;aspect-ratio:1/1.05;background:#F4EBE0;display:flex;align-items:center;justify-content:center">
+<div style="width:70%;aspect-ratio:1/1.1;border-radius:40px 40px 20px 20px;background:{{ shirtHex }};box-shadow:0 18px 40px -18px rgba(42,28,20,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:background .25s">
+<div style="display:flex;gap:6px;align-items:flex-end"><sc-for list="{{ people }}" as="q" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:30px;height:30px;border-radius:50%;background:{{ q.head }}"></div><div style="width:40px;height:16px;border-radius:20px 20px 4px 4px;background:{{ q.top }};margin-top:-2px"></div></div></sc-for></div>
+<span style="font-family:'Bricolage Grotesque';font-size:14px;font-weight:600;color:{{ inkHex }};text-align:center;padding:0 12px">{{ names }}</span>
+</div>
+<span style="position:absolute;top:14px;left:14px;background:#fff;font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:99px;color:#2F5D4A">● Live voorbeeld</span>
+<span style="position:absolute;bottom:14px;left:14px;font:500 10px ui-monospace,Menlo,monospace;color:#8A7362;background:rgba(251,247,242,.9);padding:4px 7px;border-radius:5px">productfoto + preview-laag</span>
+<div style="position:absolute;bottom:16px;right:16px;display:flex;gap:5px"><span style="width:18px;height:6px;border-radius:3px;background:#2A1C14"></span><span style="width:6px;height:6px;border-radius:3px;background:#BFAE9C"></span><span style="width:6px;height:6px;border-radius:3px;background:#BFAE9C"></span><span style="width:6px;height:6px;border-radius:3px;background:#BFAE9C"></span></div>
+</div>
+<div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13.5px;color:#5C4739"><span style="color:#E25F0C;letter-spacing:1px">★★★★★</span> <strong style="color:#2A1C14">4,9</strong> · 812 reviews</span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.05">Gezinsportret T-shirt</h2>
+<div style="display:flex;align-items:baseline;gap:10px"><span style="font-size:24px;font-weight:700">{{ price }}</span><span style="font-size:13.5px;color:#6B5648">incl. btw</span></div>
+<p style="margin:0;font-size:15.5px;line-height:1.5;color:#5C4739">Jullie gezin, getekend in onze Everly-stijl. Biologisch katoen, zacht en stevig, en de print blijft mooi na elke was.</p>
+</div>
+<div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Hoeveel personen? <span style="font-weight:400;color:#6B5648">Je kan dit later nog aanpassen</span></span>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><sc-for list="{{ counts }}" as="c" hint-placeholder-count="6"><button onClick="{{ c.pick }}" style="height:48px;border-radius:12px;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};font:700 16px Figtree">{{ c.n }}</button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600">Kleur: <span style="font-weight:400">{{ colorName }}</span></span>
+<div style="display:flex;gap:10px"><sc-for list="{{ colors }}" as="c" hint-placeholder-count="5"><button aria-label="{{ c.name }}" onClick="{{ c.pick }}" style="width:44px;height:44px;border-radius:50%;background:{{ c.hex }};border:0;box-shadow:{{ c.ring }}"></button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between"><span style="font-size:15px;font-weight:600">Maat</span><a href="#" style="font-size:14px;font-weight:600">Maattabel</a></div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><sc-for list="{{ sizes }}" as="s" hint-placeholder-count="6"><button onClick="{{ s.pick }}" style="height:44px;border-radius:12px;border:1.5px solid {{ s.border }};background:{{ s.bg }};color:{{ s.color }};font:600 14.5px Figtree">{{ s.n }}</button></sc-for></div></div>
+<a href="Everly Ontwerpstudio.dc.html" style="height:58px;border-radius:99px;background:#C2490A;color:#fff;font:700 18px Figtree;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none">Personaliseer <span style="font-size:20px">→</span></a>
+<span style="font-size:13.5px;color:#5C4739;text-align:center;margin-top:-8px">Kies kapsels, haarkleur en namen in onze ontwerpstudio. Duurt ±3 minuten.</span>
+</div>
+<div style="margin:20px 20px 0;padding:16px;border-radius:16px;background:#E4ECE5;display:flex;flex-direction:column;gap:12px">
+<span style="font-size:15px;line-height:1.4"><strong>Bestel vandaag vóór 22u</strong>, in huis tussen <strong>{{ eta }}</strong></span>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:12px;color:#2F5D4A;font-weight:600"><div style="display:flex;flex-direction:column;gap:6px"><span style="height:4px;border-radius:2px;background:#2F5D4A"></span>Besteld · vandaag</div><div style="display:flex;flex-direction:column;gap:6px"><span style="height:4px;border-radius:2px;background:#8FB3A0"></span>Gemaakt · 3–5 dagen</div><div style="display:flex;flex-direction:column;gap:6px"><span style="height:4px;border-radius:2px;background:#8FB3A0"></span>Geleverd · 1–2 dagen</div></div>
+</div>
+<div style="padding:16px 20px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<sc-for list="{{ trust }}" as="t" hint-placeholder-count="4"><div style="padding:12px;border-radius:14px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:2px"><strong style="font-size:14px">{{ t.title }}</strong><span style="font-size:12.5px;color:#5C4739;line-height:1.35">{{ t.text }}</span></div></sc-for>
+</div>
+<div style="padding:12px 20px 0;display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ payments }}" as="m" hint-placeholder-count="5"><span style="font-size:11.5px;font-weight:700;padding:5px 9px;border:1px solid #DCCDBB;border-radius:7px;background:#fff">{{ m }}</span></sc-for></div>
+<div style="padding:32px 20px 0;display:flex;flex-direction:column">
+<h3 style="margin:0 0 8px;font-family:'Bricolage Grotesque';font-size:24px;font-weight:700">Goed om te weten</h3>
+<sc-for list="{{ faq }}" as="f" hint-placeholder-count="5">
+<div style="border-bottom:1px solid #EADFD2">
+<button onClick="{{ f.toggle }}" style="width:100%;min-height:56px;border:0;background:none;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;font:600 15.5px Figtree;color:#2A1C14;padding:0">{{ f.q }}<span style="font-size:22px;font-weight:400;color:#C2490A">{{ f.sign }}</span></button>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 16px;font-size:15px;line-height:1.55;color:#5C4739">{{ f.a }}</p></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="height:110px"></div>
+<div style="position:sticky;bottom:0;padding:12px 20px 22px;background:#fff;border-top:1px solid #EADFD2;display:flex;align-items:center;gap:12px;box-shadow:0 -8px 20px -12px rgba(42,28,20,.2)">
+<div style="display:flex;flex-direction:column"><span style="font-size:12.5px;color:#6B5648">{{ countLabel }} · {{ size }}</span><strong style="font-size:17px">{{ price }}</strong></div>
+<a href="Everly Ontwerpstudio.dc.html" style="flex:1;height:52px;border-radius:99px;background:#C2490A;color:#fff;font:700 16px Figtree;display:flex;align-items:center;justify-content:center;text-decoration:none">Personaliseer →</a>
+</div>
+</div>
+</div>
+
+<div id="3b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">3b</span><span style="font-size:14px;color:#6B5648">Desktop · 1440</span></div>
+<div data-screen-label="Product desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<div style="background:#2F5D4A;color:#fff;font-size:14px;font-weight:500;display:flex;justify-content:center;gap:40px;padding:10px"><span>Gratis verzending vanaf €50 in België &amp; Nederland</span><span>Gemaakt in 3–5 werkdagen</span><span>Blij-belofte: niet tevreden = opnieuw gemaakt</span></div>
+<header style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 56px;border-bottom:1px solid #EADFD2">
+<nav style="display:flex;gap:28px;font-size:15.5px;font-weight:600"><span>Cadeau-ideeën</span><span>Voor wie</span><span style="color:#C2490A">T-shirts</span><span>Hoe werkt het</span></nav>
+<img src="assets/everly-logo.png" alt="Everly" style="height:46px">
+<div style="display:flex;justify-content:flex-end;align-items:center;gap:6px"><div style="height:44px;width:240px;border-radius:99px;background:#fff;border:1px solid #E2D5C5;display:flex;align-items:center;gap:8px;padding:0 16px;font-size:14.5px;color:#7A6455;margin-right:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B5648" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>Zoek een cadeau…</div><button aria-label="Account" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A1C14" stroke-width="1.8"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"></path></svg></button><button aria-label="Winkelmand" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#2A1C14" stroke-width="1.8" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg></button></div>
+</header>
+<div style="padding:20px 56px 0;font-size:14px;color:#6B5648">Home / T-shirts / <strong style="color:#2A1C14">Gezinsportret T-shirt</strong></div>
+<div style="padding:20px 56px 72px;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:start">
+<div style="display:grid;grid-template-columns:88px 1fr;gap:16px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="aspect-ratio:1;border-radius:14px;background:#F4EBE0;border:2px solid #2A1C14;display:flex;align-items:center;justify-content:center"><div style="width:56%;aspect-ratio:1;border-radius:10px;background:{{ shirtHex }}"></div></div>
+<sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="4"><div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(135deg,#F3E6D8 0 6px,#EEDFCE 6px 12px);display:flex;align-items:center;justify-content:center;font:500 9px ui-monospace,Menlo,monospace;color:#8A7362;text-align:center;padding:4px">{{ t }}</div></sc-for>
+</div>
+<div style="position:relative;aspect-ratio:1/1.08;border-radius:28px;background:#F4EBE0;display:flex;align-items:center;justify-content:center">
+<div style="width:64%;aspect-ratio:1/1.1;border-radius:60px 60px 28px 28px;background:{{ shirtHex }};box-shadow:0 24px 50px -20px rgba(42,28,20,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:background .25s">
+<div style="display:flex;gap:10px;align-items:flex-end"><sc-for list="{{ people }}" as="q" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:46px;height:46px;border-radius:50%;background:{{ q.head }}"></div><div style="width:62px;height:24px;border-radius:30px 30px 6px 6px;background:{{ q.top }};margin-top:-3px"></div></div></sc-for></div>
+<span style="font-family:'Bricolage Grotesque';font-size:20px;font-weight:600;color:{{ inkHex }}">{{ names }}</span>
+</div>
+<span style="position:absolute;top:20px;left:20px;background:#fff;font-size:14px;font-weight:700;padding:8px 14px;border-radius:99px;color:#2F5D4A">● Live voorbeeld · past zich aan je keuzes aan</span>
+<span style="position:absolute;bottom:20px;left:20px;font:500 11px ui-monospace,Menlo,monospace;color:#8A7362;background:rgba(251,247,242,.9);padding:5px 9px;border-radius:6px">productfoto + preview-laag (customizer render)</span>
+<div style="position:absolute;bottom:20px;right:20px;display:flex;gap:8px"><button aria-label="Vorige" style="width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:18px">←</button><button aria-label="Volgende" style="width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:18px">→</button></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<span style="font-size:14.5px;color:#5C4739"><span style="color:#E25F0C;letter-spacing:1px">★★★★★</span> <strong style="color:#2A1C14">4,9</strong> · <a href="#">812 reviews</a></span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:46px;font-weight:700;letter-spacing:-.02em;line-height:1">Gezinsportret T-shirt</h2>
+<div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:30px;font-weight:700">{{ price }}</span><span style="font-size:14.5px;color:#6B5648">incl. btw · gratis verzending vanaf €50</span></div>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#5C4739;max-width:520px">Jullie gezin, getekend in onze Everly-stijl. Biologisch katoen, zacht en stevig, en de print blijft mooi na elke was.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15.5px;font-weight:600">Hoeveel personen? <span style="font-weight:400;color:#6B5648">Je kan dit later nog aanpassen</span></span>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px"><sc-for list="{{ counts }}" as="c" hint-placeholder-count="6"><button onClick="{{ c.pick }}" style="height:50px;border-radius:12px;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};font:700 16px Figtree">{{ c.n }}</button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15.5px;font-weight:600">Kleur: <span style="font-weight:400">{{ colorName }}</span></span>
+<div style="display:flex;gap:12px"><sc-for list="{{ colors }}" as="c" hint-placeholder-count="5"><button aria-label="{{ c.name }}" onClick="{{ c.pick }}" style="width:44px;height:44px;border-radius:50%;background:{{ c.hex }};border:0;box-shadow:{{ c.ring }}"></button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;max-width:420px"><span style="font-size:15.5px;font-weight:600">Maat</span><a href="#" style="font-size:14.5px;font-weight:600">Maattabel</a></div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px"><sc-for list="{{ sizes }}" as="s" hint-placeholder-count="6"><button onClick="{{ s.pick }}" style="height:46px;border-radius:12px;border:1.5px solid {{ s.border }};background:{{ s.bg }};color:{{ s.color }};font:600 15px Figtree">{{ s.n }}</button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<a href="Everly Ontwerpstudio.dc.html" style="height:62px;border-radius:99px;background:#C2490A;color:#fff;font:700 19px Figtree;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none">Personaliseer <span style="font-size:22px">→</span></a>
+<span style="font-size:14px;color:#5C4739;text-align:center">Kies kapsels, haarkleur en namen in onze ontwerpstudio. Duurt ±3 minuten.</span>
+</div>
+<div style="padding:18px 20px;border-radius:18px;background:#E4ECE5;display:flex;flex-direction:column;gap:14px">
+<span style="font-size:16px"><strong>Bestel vandaag vóór 22u</strong>, in huis tussen <strong>{{ eta }}</strong></span>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:13px;color:#2F5D4A;font-weight:600"><div style="display:flex;flex-direction:column;gap:6px"><span style="height:4px;border-radius:2px;background:#2F5D4A"></span>Besteld · vandaag</div><div style="display:flex;flex-direction:column;gap:6px"><span style="height:4px;border-radius:2px;background:#8FB3A0"></span>Met de hand gemaakt · 3–5 werkdagen</div><div style="display:flex;flex-direction:column;gap:6px"><span style="height:4px;border-radius:2px;background:#8FB3A0"></span>bpost / PostNL · 1–2 dagen</div></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><sc-for list="{{ trust }}" as="t" hint-placeholder-count="4"><div style="padding:14px 16px;border-radius:14px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px">{{ t.title }}</strong><span style="font-size:13.5px;color:#5C4739;line-height:1.4">{{ t.text }}</span></div></sc-for></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ payments }}" as="m" hint-placeholder-count="5"><span style="font-size:12px;font-weight:700;padding:6px 10px;border:1px solid #DCCDBB;border-radius:8px;background:#fff">{{ m }}</span></sc-for></div>
+<div style="display:flex;flex-direction:column;border-top:1px solid #EADFD2;margin-top:4px">
+<sc-for list="{{ faq }}" as="f" hint-placeholder-count="5">
+<div style="border-bottom:1px solid #EADFD2">
+<button onClick="{{ f.toggle }}" style="width:100%;min-height:60px;border:0;background:none;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;font:600 16.5px Figtree;color:#2A1C14;padding:0">{{ f.q }}<span style="font-size:24px;font-weight:400;color:#C2490A">{{ f.sign }}</span></button>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 18px;font-size:16px;line-height:1.55;color:#5C4739;max-width:540px">{{ f.a }}</p></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="margin:0 56px 72px;padding:48px;border-radius:32px;background:#F4EBE0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="3"><div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:0 0 48px;height:48px;border-radius:50%;background:#E25F0C;color:#fff;font-family:'Bricolage Grotesque';font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center">{{ s.n }}</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:18px">{{ s.title }}</strong><span style="font-size:15.5px;line-height:1.5;color:#5C4739">{{ s.text }}</span></div></div></sc-for>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { n: 4, color: 0, size: 'M', open: 0 };
+  renderVals() {
+    const st = this.state;
+    const S = ['#F2CDB0', '#D9A27E', '#8C5A3C', '#F6D9C4'];
+    const H = ['#6B4226', '#E3B65B', '#B5532A', '#E3B65B', '#2A1C14', '#B9B3AC'];
+    const allNames = ['Lotte', 'Bram', 'Noor', 'Mats', 'Oma Rita', 'Opa Jef'];
+    const colors = [
+      { name: 'Wit', hex: '#FFFFFF', ink: '#2A1C14', top: '#E25F0C' },
+      { name: 'Crème', hex: '#F3E3CB', ink: '#2A1C14', top: '#C2490A' },
+      { name: 'Perzik', hex: '#F7C6A3', ink: '#2A1C14', top: '#2F5D4A' },
+      { name: 'Dennengroen', hex: '#2F5D4A', ink: '#FBF7F2', top: '#F5B98F' },
+      { name: 'Espresso', hex: '#2A1C14', ink: '#FBF7F2', top: '#E25F0C' }
+    ];
+    const c = colors[st.color];
+    const prices = { 1: '€32,95', 2: '€34,95', 3: '€34,95', 4: '€37,95', 5: '€37,95', 6: '€39,95' };
+    const sel = a => ({ border: a ? '#2A1C14' : '#DCCDBB', bg: a ? '#2A1C14' : '#fff', color: a ? '#fff' : '#2A1C14' });
+    const faqData = [
+      ['Hoe lang duurt het voor ik mijn cadeau heb?', 'We maken elk T-shirt op bestelling in 3–5 werkdagen. Daarna leveren bpost en PostNL binnen 1–2 werkdagen in België en Nederland.'],
+      ['Kan ik mijn ontwerp nog aanpassen na mijn bestelling?', 'Ja, tot 2 uur na je bestelling. Daarna gaat je T-shirt in productie. Stuur ons gerust een mailtje via hallo@everly.be.'],
+      ['Kan ik een gepersonaliseerd product retourneren?', 'Omdat alles voor jou gemaakt wordt, kunnen we niet zomaar terugnemen. Maar met onze blij-belofte maken we het opnieuw of krijg je je geld terug als het niet goed is.'],
+      ['Hoe was ik het T-shirt?', 'Binnenstebuiten op 30 graden en niet in de droogkast. Zo blijft de print jarenlang mooi.'],
+      ['Kan ik het als cadeau laten opsturen?', 'Zeker. Kies bij het afrekenen voor cadeauverpakking en een kaartje. We sturen nooit een prijs mee.']
+    ];
+    return {
+      shirtHex: c.hex, inkHex: c.ink, colorName: c.name,
+      people: Array.from({ length: st.n }, (_, i) => ({ head: `linear-gradient(${H[i]} 0 40%, ${S[i % 4]} 40%)`, top: c.top })),
+      names: allNames.slice(0, st.n).join(' · '),
+      price: prices[st.n],
+      countLabel: `${st.n} ${st.n === 1 ? 'persoon' : 'personen'}`,
+      size: st.size,
+      eta: 'do 15 en za 17 okt',
+      counts: [1, 2, 3, 4, 5, 6].map(n => ({ n, pick: () => this.setState({ n }), ...sel(n === st.n) })),
+      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'].map(n => ({ n, pick: () => this.setState({ size: n }), ...sel(n === st.size) })),
+      colors: colors.map((x, i) => ({ name: x.name, hex: x.hex, pick: () => this.setState({ color: i }), ring: i === st.color ? '0 0 0 3px #FBF7F2, 0 0 0 5px #2A1C14' : 'inset 0 0 0 1px rgba(42,28,20,.18)' })),
+      thumbs: ['achterkant', 'detail print', 'gedragen', 'cadeauverpakking'],
+      trust: [
+        { title: 'Blij-belofte', text: 'Niet blij? Wij maken het opnieuw.' },
+        { title: 'Gemaakt in België', text: 'Met de hand gedrukt in Gent.' },
+        { title: 'Veilig betalen', text: 'Bancontact, iDEAL en kaart.' },
+        { title: 'Cadeauklaar', text: 'Verpakking en kaartje mogelijk.' }
+      ],
+      payments: ['Bancontact', 'iDEAL', 'Visa', 'Mastercard', 'PayPal', 'Apple Pay'],
+      faq: faqData.map(([q, a], i) => ({ q, a, open: st.open === i, sign: st.open === i ? '−' : '+', toggle: () => this.setState({ open: st.open === i ? -1 : i }) })),
+      steps: [
+        { n: '1', title: 'Kies je cadeau', text: 'Kleur, maat en het aantal personen.' },
+        { n: '2', title: 'Personaliseer', text: 'Per persoon een kapsel, haarkleur en naam.' },
+        { n: '3', title: 'Wij drukken en leveren', text: 'In 3–5 werkdagen gemaakt, daarna snel bij jou.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

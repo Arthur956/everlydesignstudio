@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
+<h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">Mega menu</h1>
+<span style="font-size:16px;color:#6B5648">Zit in de gedeelde header, dus werkt op elke pagina · desktop opent bij hover of klik · mobiel opent via het menu-icoon</span>
+</div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="mm-a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">a</span><span style="font-size:14px;color:#6B5648">Desktop · Cadeau-ideeën</span></div>
+<div data-screen-label="Mega menu cadeau-ideeën" style="width:1440px;height:720px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column">
+<dc-import name="EverlyHeader" variant="desktop" open-menu="Cadeau-ideeën" hint-size="100%,115px"></dc-import>
+<div style="flex:1;margin:40px 56px;border-radius:28px;background:repeating-linear-gradient(135deg,#F3E6D8 0 12px,#EEDFCE 12px 24px)"></div>
+</div>
+</div>
+
+<div id="mm-b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">b</span><span style="font-size:14px;color:#6B5648">Desktop · Voor wie</span></div>
+<div data-screen-label="Mega menu voor wie" style="width:1440px;height:620px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column">
+<dc-import name="EverlyHeader" variant="desktop" open-menu="Voor wie" hint-size="100%,115px"></dc-import>
+<div style="flex:1;margin:40px 56px;border-radius:28px;background:repeating-linear-gradient(135deg,#F3E6D8 0 12px,#EEDFCE 12px 24px)"></div>
+</div>
+</div>
+
+<div id="mm-c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">c</span><span style="font-size:14px;color:#6B5648">Desktop · T-shirts</span></div>
+<div data-screen-label="Mega menu T-shirts" style="width:1440px;height:620px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column">
+<dc-import name="EverlyHeader" variant="desktop" open-menu="T-shirts" hint-size="100%,115px"></dc-import>
+<div style="flex:1;margin:40px 56px;border-radius:28px;background:repeating-linear-gradient(135deg,#F3E6D8 0 12px,#EEDFCE 12px 24px)"></div>
+</div>
+</div>
+
+<div id="mm-d" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">d</span><span style="font-size:14px;color:#6B5648">Mobiel · menu open</span></div>
+<div data-screen-label="Menu mobiel" style="width:390px;height:844px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" drawer-open="{{ true }}" drawer-section="Voor wie" drawer-height="744px" hint-size="100%,100px"></dc-import>
+</div>
+</div>
+
+<div id="mm-e" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">e</span><span style="font-size:14px;color:#6B5648">Mobiel · Cadeau-ideeën uitgeklapt</span></div>
+<div data-screen-label="Menu mobiel cadeau-ideeën" style="width:390px;height:844px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" drawer-open="{{ true }}" drawer-section="Cadeau-ideeën" drawer-height="744px" hint-size="100%,100px"></dc-import>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+</body>
+</html>

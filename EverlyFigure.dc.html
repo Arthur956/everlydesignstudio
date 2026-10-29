@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="width:{{ sizePx }};display:flex;flex-direction:column;align-items:center;pointer-events:none">
+<div style="position:relative;width:80%;aspect-ratio:1">
+<sc-for list="{{ back }}" as="b" hint-placeholder-count="0"><div style="position:absolute;left:{{ b.l }};top:{{ b.t }};width:{{ b.w }};height:{{ b.h }};border-radius:{{ b.r }};background:{{ b.c }}"></div></sc-for>
+<div style="position:absolute;left:12%;top:12%;width:76%;height:76%;border-radius:50%;background:{{ skin }}"></div>
+<div style="position:absolute;left:32.5%;top:54%;width:7%;height:8%;border-radius:50%;background:#2A1C14"></div>
+<div style="position:absolute;left:60.5%;top:54%;width:7%;height:8%;border-radius:50%;background:#2A1C14"></div>
+<div style="position:absolute;left:21%;top:67%;width:13%;height:8%;border-radius:50%;background:#F08E7A;opacity:.45"></div>
+<div style="position:absolute;left:66%;top:67%;width:13%;height:8%;border-radius:50%;background:#F08E7A;opacity:.45"></div>
+<sc-for list="{{ front }}" as="b" hint-placeholder-count="1"><div style="position:absolute;left:{{ b.l }};top:{{ b.t }};width:{{ b.w }};height:{{ b.h }};border-radius:{{ b.r }};background:{{ b.c }}"></div></sc-for>
+<sc-if value="{{ glasses }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:24%;top:46%;width:24%;height:24%;border-radius:50%;border:{{ gb }};box-sizing:border-box"></div>
+<div style="position:absolute;left:52%;top:46%;width:24%;height:24%;border-radius:50%;border:{{ gb }};box-sizing:border-box"></div>
+<div style="position:absolute;left:47%;top:56%;width:6%;height:2.5%;background:#2A1C14"></div>
+</sc-if>
+</div>
+<sc-if value="{{ showBody }}" hint-placeholder-val="{{ true }}"><div style="width:100%;aspect-ratio:2/1;margin-top:-6%;border-radius:50% 50% 14% 14% / 80% 80% 20% 20%;background:{{ body }}"></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:140,&quot;height&quot;:160},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;},&quot;hair&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;kort&quot;,&quot;lang&quot;,&quot;krullen&quot;,&quot;staartjes&quot;,&quot;knot&quot;,&quot;kaal&quot;],&quot;default&quot;:&quot;lang&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;hairColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#6B4226&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;skin&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F2CDB0&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;glasses&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;body&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E25F0C&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showBody&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const size = this.props.size ?? 80;
+    const c = this.props.hairColor ?? '#6B4226';
+    const B = (l, t, w, h, r = '50%') => ({ l: l + '%', t: t + '%', w: w + '%', h: h + '%', r, c });
+    const cap = () => B(9, 6, 82, 40, '50% 50% 24% 24% / 90% 90% 20% 20%');
+    const defs = {
+      kort: [[], [B(9, 7, 82, 38, '50% 50% 30% 30% / 90% 90% 25% 25%')]],
+      lang: [[B(4, 6, 92, 88, '46% 46% 14% 14%')], [cap()]],
+      krullen: [[], [B(2, 24, 26, 26), B(8, 6, 28, 28), B(26, 0, 28, 28), B(46, 0, 28, 28), B(64, 6, 28, 28), B(72, 24, 26, 26), B(16, 10, 68, 30)]],
+      staartjes: [[B(-8, 34, 28, 34), B(80, 34, 28, 34)], [cap()]],
+      knot: [[B(31, -12, 38, 38)], [cap()]],
+      kaal: [[], []]
+    };
+    const [back, front] = defs[this.props.hair ?? 'kort'] || defs.kort;
+    return {
+      sizePx: size + 'px', back, front,
+      skin: this.props.skin ?? '#F2CDB0',
+      glasses: !!this.props.glasses,
+      gb: `${Math.max(1.5, size * 0.028).toFixed(1)}px solid #2A1C14`,
+      body: this.props.body ?? '#E25F0C',
+      showBody: this.props.showBody ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

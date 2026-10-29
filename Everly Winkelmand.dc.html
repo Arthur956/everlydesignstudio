@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
+<h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">04 · Overdracht naar customizer &amp; winkelmand</h1>
+<span style="font-size:16px;color:#6B5648"><a href="Everly Product.dc.html">← Product</a> · <a href="Everly Design System.dc.html">Design system →</a> · Voeg de upsell toe om de verzendbalk te zien vollopen</span>
+</div>
+
+<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:15px;color:#5C4739">
+<span style="background:#fff;border:1px solid #DCCDBB;border-radius:99px;padding:8px 14px"><strong style="color:#2A1C14">everly.be</strong>/products/gezinsportret-t-shirt</span><span>→ “Personaliseer” met product-, variant- en aantal-ID →</span>
+<span style="background:#fff;border:1px solid #DCCDBB;border-radius:99px;padding:8px 14px"><strong style="color:#2A1C14">customizer.everly.be</strong>/?product=…&amp;variant=…&amp;n=4</span><span>→ terug via /cart/add met line item properties →</span>
+<span style="background:#fff;border:1px solid #DCCDBB;border-radius:99px;padding:8px 14px"><strong style="color:#2A1C14">everly.be</strong>/cart (mini-cart open)</span>
+</div>
+
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="4a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">4a</span><span style="font-size:14px;color:#6B5648">Mobiel · customizer-kader</span></div>
+<div data-screen-label="Customizer mobiel" style="width:390px;height:844px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column">
+<div style="background:#EFE6DA;padding:10px 16px;display:flex;justify-content:center"><span style="background:#fff;border-radius:10px;padding:7px 14px;font-size:13px;color:#5C4739;display:flex;gap:6px;align-items:center">🔒 customizer.everly.be</span></div>
+<header style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px 8px 8px;border-bottom:1px solid #EADFD2">
+<a href="Everly Product.dc.html" style="height:44px;padding:0 10px;display:flex;align-items:center;gap:6px;font-size:14.5px;font-weight:600;color:#2A1C14">← Terug</a>
+<div style="display:flex;align-items:center;gap:8px"><img src="assets/everly-logo.png" alt="Everly" style="height:28px"><span style="font-size:12px;font-weight:700;color:#6B5648;border-left:1px solid #DCCDBB;padding-left:8px">Ontwerpstudio</span></div>
+<span style="width:60px;text-align:right;font-size:13px;color:#2F5D4A;font-weight:600">Bewaard</span>
+</header>
+<div style="display:flex;gap:6px;padding:12px 20px"><sc-for list="{{ studioSteps }}" as="s" hint-placeholder-count="3"><div style="flex:1;display:flex;flex-direction:column;gap:6px"><span style="height:4px;border-radius:2px;background:{{ s.bar }}"></span><span style="font-size:12.5px;font-weight:600;color:{{ s.color }}">{{ s.label }}</span></div></sc-for></div>
+<div style="margin:0 20px;aspect-ratio:1/0.9;border-radius:20px;background:#F4EBE0;display:flex;align-items:center;justify-content:center">
+<div style="width:62%;aspect-ratio:1/1.05;border-radius:34px 34px 16px 16px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px"><div style="display:flex;gap:5px;align-items:flex-end"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:{{ q.head }}"></div><div style="width:34px;height:13px;border-radius:18px 18px 3px 3px;background:#E25F0C;margin-top:-2px"></div></div></sc-for></div><span style="font-family:'Bricolage Grotesque';font-size:12px;font-weight:600">Lotte · Bram · Noor · Mats</span></div>
+</div>
+<div style="flex:1;margin:16px 20px;border-radius:20px;border:1.5px dashed #CDBBA6;background:repeating-linear-gradient(135deg,#FBF7F2 0 10px,#F4EBE0 10px 20px);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center"><span style="font:500 12px ui-monospace,Menlo,monospace;color:#7A6455;line-height:1.6">customizer-UI (buiten scope)<br>per persoon: kapsel · haarkleur · naam</span></div>
+<div style="padding:12px 20px 24px;background:#fff;border-top:1px solid #EADFD2;display:flex;align-items:center;gap:12px"><div style="display:flex;flex-direction:column"><span style="font-size:12.5px;color:#6B5648">4 personen · Wit · M</span><strong style="font-size:17px">€37,95</strong></div><button style="flex:1;height:52px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 15.5px Figtree">In winkelmand</button></div>
+</div>
+</div>
+
+<div id="4b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">4b</span><span style="font-size:14px;color:#6B5648">Mobiel · terug in de shop, mini-cart</span></div>
+<div data-screen-label="Mini-cart mobiel" style="width:390px;height:844px;background:rgba(42,28,20,.45);border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column;justify-content:flex-end;position:relative">
+<div style="position:absolute;top:20px;left:20px;right:20px;background:#2F5D4A;color:#fff;border-radius:14px;padding:12px 16px;font-size:14.5px;font-weight:600;display:flex;gap:10px;align-items:center"><span style="width:22px;height:22px;border-radius:50%;background:#fff;color:#2F5D4A;display:flex;align-items:center;justify-content:center;font-size:13px">✓</span>Je ontwerp is bewaard en toegevoegd</div>
+<div style="background:#FBF7F2;border-radius:24px 24px 0 0;height:760px;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 12px 12px 20px"><strong style="font-family:'Bricolage Grotesque';font-size:22px">Je winkelmand ({{ itemCount }})</strong><button aria-label="Sluiten" style="width:44px;height:44px;border:0;background:none;font-size:24px;color:#2A1C14">×</button></div>
+<div style="padding:0 20px 14px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #EADFD2">
+<span style="font-size:14px">{{ shipMsg }}</span>
+<div style="height:8px;border-radius:4px;background:#EADFD2;overflow:hidden"><div style="height:100%;width:{{ shipPct }};background:{{ shipColor }};border-radius:4px;transition:width .4s"></div></div>
+</div>
+<div style="flex:1;overflow:auto;padding:16px 20px;display:flex;flex-direction:column;gap:16px">
+<div style="display:grid;grid-template-columns:96px 1fr;gap:14px">
+<div style="aspect-ratio:1/1.15;border-radius:14px;background:#F4EBE0;display:flex;align-items:center;justify-content:center"><div style="width:76%;aspect-ratio:1;border-radius:12px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px"><div style="display:flex;gap:2px;align-items:flex-end"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:11px;height:11px;border-radius:50%;background:{{ q.head }}"></div><div style="width:14px;height:6px;border-radius:8px 8px 1px 1px;background:#E25F0C;margin-top:-1px"></div></div></sc-for></div></div></div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;gap:8px"><strong style="font-size:15.5px;line-height:1.3">Gezinsportret T-shirt</strong><strong style="font-size:15.5px">€37,95</strong></div>
+<span style="font-size:13px;color:#5C4739">Wit · M · 4 personen</span>
+<div style="display:flex;flex-direction:column;gap:2px;padding:8px 10px;border-radius:10px;background:#fff;border:1px solid #EADFD2"><sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><span style="font-size:12.5px;color:#5C4739"><strong style="color:#2A1C14">{{ p.name }}</strong> · {{ p.hair }}</span></sc-for></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px"><div style="display:flex;align-items:center;border:1.5px solid #DCCDBB;border-radius:99px;height:40px"><button aria-label="Minder" style="width:40px;height:40px;border:0;background:none;font-size:18px">−</button><span style="width:20px;text-align:center;font-weight:700">1</span><button aria-label="Meer" style="width:40px;height:40px;border:0;background:none;font-size:18px">+</button></div><a href="Everly Ontwerpstudio.dc.html" style="font-size:14px;font-weight:700">Ontwerp bewerken</a></div>
+</div>
+</div>
+<sc-if value="{{ upsellAdded }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:96px 1fr;gap:14px">
+<div style="aspect-ratio:1/1.15;border-radius:14px;background:#F6D9CF;display:flex;align-items:center;justify-content:center"><div style="width:66%;aspect-ratio:1;border-radius:50%;background:#fff;display:flex;align-items:flex-end;justify-content:center;gap:2px;padding-bottom:18px"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="width:9px;height:9px;border-radius:50%;background:{{ q.head }}"></div></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between"><strong style="font-size:15.5px">Kids T-shirt · zelfde portret</strong><strong style="font-size:15.5px">€24,95</strong></div><span style="font-size:13px;color:#5C4739">Wit · 6 jaar · 4 personen</span><button onClick="{{ toggleUpsell }}" style="align-self:flex-start;border:0;background:none;padding:0;font:700 14px Figtree;color:#C2490A">Verwijderen</button></div>
+</div>
+</sc-if>
+<sc-if value="{{ showUpsell }}" hint-placeholder-val="{{ true }}">
+<div style="border-radius:18px;background:#FFE6D5;padding:14px;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center">
+<div style="aspect-ratio:1;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center"><div style="display:flex;gap:2px"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="width:9px;height:9px;border-radius:50%;background:{{ q.head }}"></div></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:14.5px;line-height:1.3">Nog een cadeau? Zelfde portret op een kids T-shirt</strong><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:14px;font-weight:700">€24,95</span><button onClick="{{ toggleUpsell }}" style="height:40px;padding:0 16px;border:0;border-radius:99px;background:#2A1C14;color:#fff;font:700 14px Figtree">+ Toevoegen</button></div></div>
+</div>
+</sc-if>
+</div>
+<div style="padding:14px 20px 24px;background:#fff;border-top:1px solid #EADFD2;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;font-size:16px"><span>Subtotaal</span><strong>{{ subtotal }}</strong></div>
+<span style="font-size:13px;color:#2F5D4A;font-weight:600">Gemaakt in 3–5 werkdagen · in huis {{ eta }}</span>
+<button style="height:56px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 17px Figtree">Veilig afrekenen</button>
+<div style="display:flex;gap:5px;justify-content:center"><sc-for list="{{ payments }}" as="m" hint-placeholder-count="4"><span style="font-size:11px;font-weight:700;padding:4px 8px;border:1px solid #DCCDBB;border-radius:6px">{{ m }}</span></sc-for></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="4c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">4c</span><span style="font-size:14px;color:#6B5648">Desktop · customizer-kader</span></div>
+<div data-screen-label="Customizer desktop" style="width:1440px;height:820px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25);display:flex;flex-direction:column">
+<div style="background:#EFE6DA;padding:10px 16px;display:flex;align-items:center;gap:16px"><div style="display:flex;gap:7px"><span style="width:12px;height:12px;border-radius:50%;background:#DCCDBB"></span><span style="width:12px;height:12px;border-radius:50%;background:#DCCDBB"></span><span style="width:12px;height:12px;border-radius:50%;background:#DCCDBB"></span></div><span style="flex:1;max-width:520px;margin:0 auto;background:#fff;border-radius:10px;padding:7px 14px;font-size:13.5px;color:#5C4739">🔒 customizer.everly.be/gezinsportret?variant=wit-m&amp;n=4</span></div>
+<header style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 40px;border-bottom:1px solid #EADFD2">
+<a href="Everly Product.dc.html" style="font-size:15px;font-weight:600;color:#2A1C14">← Terug naar de shop</a>
+<div style="display:flex;align-items:center;gap:12px"><img src="assets/everly-logo.png" alt="Everly" style="height:38px"><span style="font-size:13px;font-weight:700;color:#6B5648;border-left:1px solid #DCCDBB;padding-left:12px">Ontwerpstudio</span></div>
+<div style="display:flex;justify-content:flex-end;gap:20px;font-size:14px;color:#5C4739"><span style="color:#2F5D4A;font-weight:600">● Automatisch bewaard</span><span>Hulp nodig? hallo@everly.be</span></div>
+</header>
+<div style="flex:1;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;padding:28px 40px">
+<div style="border-radius:28px;background:#F4EBE0;display:flex;align-items:center;justify-content:center"><div style="width:52%;aspect-ratio:1/1.05;border-radius:60px 60px 24px 24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;box-shadow:0 20px 40px -20px rgba(42,28,20,.4)"><div style="display:flex;gap:10px;align-items:flex-end"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:44px;height:44px;border-radius:50%;background:{{ q.head }}"></div><div style="width:58px;height:22px;border-radius:30px 30px 6px 6px;background:#E25F0C;margin-top:-3px"></div></div></sc-for></div><span style="font-family:'Bricolage Grotesque';font-size:18px;font-weight:600">Lotte · Bram · Noor · Mats</span></div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:8px"><sc-for list="{{ studioSteps }}" as="s" hint-placeholder-count="3"><div style="flex:1;display:flex;flex-direction:column;gap:8px"><span style="height:4px;border-radius:2px;background:{{ s.bar }}"></span><span style="font-size:14px;font-weight:600;color:{{ s.color }}">{{ s.label }}</span></div></sc-for></div>
+<div style="flex:1;border-radius:24px;border:1.5px dashed #CDBBA6;background:repeating-linear-gradient(135deg,#FBF7F2 0 12px,#F4EBE0 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center"><span style="font:500 13px ui-monospace,Menlo,monospace;color:#7A6455;line-height:1.7">customizer-UI (buiten scope)<br>zelfde kleuren, type en knoppen als de shop</span></div>
+<div style="display:flex;align-items:center;gap:16px;padding-top:4px"><div style="display:flex;flex-direction:column"><span style="font-size:14px;color:#6B5648">4 personen · Wit · M</span><strong style="font-size:22px">€37,95</strong></div><button style="flex:1;height:58px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 17px Figtree">Toevoegen aan winkelmand →</button></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="4d" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">4d</span><span style="font-size:14px;color:#6B5648">Desktop · winkelmand</span></div>
+<div data-screen-label="Winkelmand desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<header style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 56px;border-bottom:1px solid #EADFD2">
+<a href="Everly Collectie.dc.html" style="font-size:15px;font-weight:600;color:#2A1C14">← Verder winkelen</a>
+<img src="assets/everly-logo.png" alt="Everly" style="height:46px">
+<span style="text-align:right;font-size:14.5px;color:#5C4739">🔒 Veilig afrekenen</span>
+</header>
+<div style="padding:40px 56px 72px;display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:24px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:44px;font-weight:700;letter-spacing:-.02em">Je winkelmand</h2>
+<div style="padding:18px 22px;border-radius:18px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:10px"><span style="font-size:16px">{{ shipMsg }}</span><div style="height:10px;border-radius:5px;background:#EADFD2;overflow:hidden"><div style="height:100%;width:{{ shipPct }};background:{{ shipColor }};border-radius:5px;transition:width .4s"></div></div></div>
+<div style="display:grid;grid-template-columns:200px 1fr auto;gap:28px;padding:24px;border-radius:24px;background:#fff;border:1px solid #EADFD2">
+<div style="aspect-ratio:1/1.1;border-radius:18px;background:#F4EBE0;display:flex;align-items:center;justify-content:center;position:relative"><div style="width:74%;aspect-ratio:1;border-radius:16px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><div style="display:flex;gap:4px;align-items:flex-end"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:22px;height:22px;border-radius:50%;background:{{ q.head }}"></div><div style="width:28px;height:11px;border-radius:14px 14px 3px 3px;background:#E25F0C;margin-top:-2px"></div></div></sc-for></div><span style="font-family:'Bricolage Grotesque';font-size:10px;font-weight:600">Lotte · Bram · Noor · Mats</span></div><span style="position:absolute;bottom:8px;left:8px;font:500 9.5px ui-monospace,Menlo,monospace;color:#8A7362">_preview_url</span></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<strong style="font-size:20px">Gezinsportret T-shirt</strong>
+<span style="font-size:15px;color:#5C4739">Wit · Maat M · 4 personen</span>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;padding:12px 14px;border-radius:12px;background:#FBF7F2"><sc-for list="{{ persons }}" as="p" hint-placeholder-count="4"><span style="font-size:14px;color:#5C4739"><strong style="color:#2A1C14">{{ p.name }}</strong> · {{ p.hair }}</span></sc-for></div>
+<div style="display:flex;gap:20px;align-items:center;margin-top:4px"><div style="display:flex;align-items:center;border:1.5px solid #DCCDBB;border-radius:99px;height:44px"><button aria-label="Minder" style="width:44px;height:44px;border:0;background:none;font-size:18px">−</button><span style="width:20px;text-align:center;font-weight:700">1</span><button aria-label="Meer" style="width:44px;height:44px;border:0;background:none;font-size:18px">+</button></div><a href="#4c" style="font-size:15px;font-weight:700">Ontwerp bewerken</a><a href="#" style="font-size:15px;color:#6B5648">Verwijderen</a></div>
+</div>
+<strong style="font-size:20px">€37,95</strong>
+</div>
+<sc-if value="{{ upsellAdded }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:200px 1fr auto;gap:28px;padding:24px;border-radius:24px;background:#fff;border:1px solid #EADFD2">
+<div style="aspect-ratio:1/1.1;border-radius:18px;background:#F6D9CF;display:flex;align-items:center;justify-content:center"><div style="width:62%;aspect-ratio:1;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;gap:4px"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="width:16px;height:16px;border-radius:50%;background:{{ q.head }}"></div></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><strong style="font-size:20px">Kids T-shirt · zelfde portret</strong><span style="font-size:15px;color:#5C4739">Wit · 6 jaar · 4 personen, ontwerp overgenomen</span><button onClick="{{ toggleUpsell }}" style="align-self:flex-start;border:0;background:none;padding:0;font:700 15px Figtree;color:#C2490A">Verwijderen</button></div>
+<strong style="font-size:20px">€24,95</strong>
+</div>
+</sc-if>
+<sc-if value="{{ showUpsell }}" hint-placeholder-val="{{ true }}">
+<div style="border-radius:24px;background:#FFE6D5;padding:24px 28px;display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center">
+<div style="aspect-ratio:1;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;gap:3px"><sc-for list="{{ people }}" as="q" hint-placeholder-count="4"><div style="width:14px;height:14px;border-radius:50%;background:{{ q.head }}"></div></sc-for></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9E3B07">Maak er twee cadeaus van</span><strong style="font-family:'Bricolage Grotesque';font-size:22px">Jullie portret ook op een kids T-shirt</strong><span style="font-size:15px;color:#5C4739">We nemen je ontwerp over, je kiest enkel de maat. €24,95</span></div>
+<button onClick="{{ toggleUpsell }}" style="height:52px;padding:0 24px;border:0;border-radius:99px;background:#2A1C14;color:#fff;font:700 15.5px Figtree">+ Toevoegen</button>
+</div>
+</sc-if>
+</div>
+<aside style="padding:28px;border-radius:24px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:16px">
+<strong style="font-family:'Bricolage Grotesque';font-size:24px">Overzicht</strong>
+<div style="display:flex;justify-content:space-between;font-size:16px"><span>Subtotaal</span><span>{{ subtotal }}</span></div>
+<div style="display:flex;justify-content:space-between;font-size:16px"><span>Verzending</span><span style="color:{{ shipColor }};font-weight:600">{{ shipCost }}</span></div>
+<label onClick="{{ toggleGift }}" style="display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;border:1.5px solid {{ giftBorder }};cursor:pointer"><span style="width:22px;height:22px;border-radius:6px;border:1.5px solid {{ giftBorder }};background:{{ giftBox }};color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ giftCheck }}</span><span style="flex:1;font-size:15px"><strong>Cadeauverpakking + kaartje</strong><br><span style="color:#5C4739;font-size:13.5px">Zonder prijs, met jouw boodschap</span></span><span style="font-size:15px">€3,95</span></label>
+<div style="display:flex;gap:8px"><div style="flex:1;height:46px;border-radius:12px;border:1.5px solid #DCCDBB;display:flex;align-items:center;padding:0 14px;font-size:15px;color:#7A6455">Kortingscode</div><button style="height:46px;padding:0 16px;border:1.5px solid #2A1C14;border-radius:12px;background:none;font:700 15px Figtree;color:#2A1C14">Toepassen</button></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #EADFD2;padding-top:16px"><strong style="font-size:18px">Totaal</strong><span style="display:flex;flex-direction:column;align-items:flex-end"><strong style="font-size:26px">{{ total }}</strong><span style="font-size:13px;color:#6B5648">incl. btw</span></span></div>
+<button style="height:60px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 18px Figtree">Veilig afrekenen</button>
+<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><sc-for list="{{ payments }}" as="m" hint-placeholder-count="5"><span style="font-size:12px;font-weight:700;padding:5px 9px;border:1px solid #DCCDBB;border-radius:7px">{{ m }}</span></sc-for></div>
+<div style="padding:14px 16px;border-radius:14px;background:#E4ECE5;font-size:14.5px;line-height:1.45;color:#1F3F32"><strong>In huis {{ eta }}</strong><br>Met de hand gemaakt in 3–5 werkdagen. Niet blij? Dan maken we het opnieuw.</div>
+</aside>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { upsell: false, gift: false };
+  renderVals() {
+    const { upsell, gift } = this.state;
+    const S = ['#F2CDB0', '#D9A27E', '#F6D9C4', '#F2CDB0'];
+    const H = ['#6B4226', '#E3B65B', '#B5532A', '#E3B65B'];
+    const fmt = v => '€' + v.toFixed(2).replace('.', ',');
+    const sub = 37.95 + (upsell ? 24.95 : 0);
+    const free = sub >= 50;
+    const total = sub + (free ? 0 : 4.95) + (gift ? 3.95 : 0);
+    const toggleUpsell = () => this.setState(s => ({ upsell: !s.upsell }));
+    return {
+      people: H.map((h, i) => ({ head: `linear-gradient(${h} 0 40%, ${S[i]} 40%)` })),
+      persons: [{ name: 'Lotte', hair: 'lang & golvend, bruin' }, { name: 'Bram', hair: 'kort, blond' }, { name: 'Noor', hair: 'staartjes, rood' }, { name: 'Mats', hair: 'krullen, blond' }],
+      studioSteps: [{ label: '1 Personen', bar: '#2F5D4A', color: '#2F5D4A' }, { label: '2 Kapsels', bar: '#2F5D4A', color: '#2F5D4A' }, { label: '3 Namen', bar: '#C2490A', color: '#2A1C14' }],
+      upsellAdded: upsell, showUpsell: !upsell, toggleUpsell,
+      itemCount: upsell ? 2 : 1,
+      subtotal: fmt(sub), total: fmt(total),
+      shipMsg: free ? 'Top! Je verzending is gratis.' : `Nog ${fmt(50 - sub)} tot gratis verzending`,
+      shipPct: Math.min(100, sub / 50 * 100) + '%',
+      shipColor: free ? '#2F5D4A' : '#C2490A',
+      shipCost: free ? 'Gratis' : '€4,95',
+      eta: 'do 15 – za 17 okt',
+      toggleGift: () => this.setState(s => ({ gift: !s.gift })),
+      giftBorder: gift ? '#C2490A' : '#DCCDBB', giftBox: gift ? '#C2490A' : '#fff', giftCheck: gift ? '✓' : '',
+      payments: ['Bancontact', 'iDEAL', 'Visa', 'Mastercard', 'PayPal']
+    };
+  }
+}
+</script>
+</body>
+</html>

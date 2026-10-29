@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E7E0D6;font-family:Figtree,system-ui,sans-serif;color:#2A1C14;-webkit-font-smoothing:antialiased}a{color:#C2490A;text-decoration:none}a:hover{color:#9E3B07;text-decoration:underline}*{box-sizing:border-box}button{cursor:pointer}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap"><h1 style="margin:0;font-family:'Bricolage Grotesque';font-size:40px;font-weight:700">08 · Account &amp; bestelling volgen</h1><span style="font-size:16px;color:#6B5648"><a href="Everly Zoeken.dc.html">← Zoeken</a> · <a href="Everly Klantenservice.dc.html">Klantenservice →</a> · Klik op een bestelling in 8c</span></div>
+<div style="display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap">
+
+<div id="8a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">8a</span><span style="font-size:14px;color:#6B5648">Mobiel · bestelling opzoeken / inloggen</span></div>
+<div data-screen-label="Bestelling opzoeken mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" announcement="{{ false }}" hint-size="100%,65px"></dc-import>
+<div style="padding:32px 20px 0;display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.05">Waar is mijn cadeau?</h2>
+<p style="margin:0;font-size:16px;line-height:1.5;color:#5C4739">Vul je bestelnummer en e-mailadres in. Je vindt het nummer in je bevestigingsmail.</p>
+</div>
+<div style="padding:22px 20px 0;display:flex;flex-direction:column;gap:14px">
+<label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14.5px;font-weight:600">Bestelnummer</span><div style="height:52px;border-radius:12px;border:1.5px solid #2A1C14;background:#fff;padding:0 16px;display:flex;align-items:center;font-size:16px">EV-10482</div></label>
+<label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14.5px;font-weight:600">E-mailadres</span><div style="height:52px;border-radius:12px;border:1.5px solid #DCCDBB;background:#fff;padding:0 16px;display:flex;align-items:center;font-size:16px;color:#7A6455">sofie@voorbeeld.be</div></label>
+<button style="height:56px;border:0;border-radius:99px;background:#C2490A;color:#fff;font:700 17px Figtree">Volg mijn bestelling</button>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:28px 20px 0"><span style="flex:1;height:1px;background:#EADFD2"></span><span style="font-size:14px;color:#6B5648">of</span><span style="flex:1;height:1px;background:#EADFD2"></span></div>
+<div style="margin:20px 20px 0;padding:20px;border-radius:20px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:12px">
+<strong style="font-family:'Bricolage Grotesque';font-size:20px">Log in op je account</strong>
+<span style="font-size:15px;line-height:1.5;color:#5C4739">Geen wachtwoord nodig. We mailen je een code van 6 cijfers.</span>
+<div style="height:52px;border-radius:12px;border:1.5px solid #DCCDBB;background:#FBF7F2;padding:0 16px;display:flex;align-items:center;font-size:16px;color:#7A6455">je@email.be</div>
+<button style="height:52px;border:1.5px solid #2A1C14;border-radius:99px;background:transparent;color:#2A1C14;font:700 16px Figtree">Stuur mij een code</button>
+<span style="font-size:13px;color:#6B5648">Met je account zie je al je bestellingen en bewaarde ontwerpen.</span>
+</div>
+<div style="height:40px"></div>
+<dc-import name="EverlyFooter" variant="mobile" hint-size="100%,760px"></dc-import>
+</div>
+</div>
+
+<div id="8b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">8b</span><span style="font-size:14px;color:#6B5648">Mobiel · bestelstatus</span></div>
+<div data-screen-label="Bestelstatus mobiel" style="width:390px;background:#FBF7F2;border-radius:32px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="mobile" announcement="{{ false }}" hint-size="100%,65px"></dc-import>
+<div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:6px">
+<a href="#8a" style="font-size:14.5px;font-weight:600">← Mijn bestellingen</a>
+<span style="font-size:13.5px;color:#6B5648;margin-top:8px">Bestelling EV-10482 · 7 okt 2026</span>
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.05">Je cadeau wordt gemaakt</h2>
+<span style="font-size:16px;color:#2F5D4A;font-weight:600">Verwacht: do 15 – za 17 okt</span>
+</div>
+<div style="margin:20px 20px 0;padding:20px;border-radius:20px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column">
+<sc-for list="{{ statusSteps }}" as="s" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:28px 1fr;gap:12px">
+<div style="display:flex;flex-direction:column;align-items:center"><span style="width:24px;height:24px;border-radius:50%;background:{{ s.dot }};border:2px solid {{ s.ring }};color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ s.mark }}</span><span style="flex:1;width:2px;background:{{ s.line }};min-height:18px"></span></div>
+<div style="display:flex;flex-direction:column;gap:2px;padding-bottom:16px"><strong style="font-size:15.5px;color:{{ s.color }}">{{ s.title }}</strong><span style="font-size:13.5px;color:#6B5648">{{ s.text }}</span></div>
+</div>
+</sc-for>
+</div>
+<div style="margin:12px 20px 0;padding:14px 16px;border-radius:14px;background:#FFE6D5;font-size:14.5px;line-height:1.45;color:#5A2A06"><strong>Nog iets aanpassen?</strong> Je ontwerp is al nagekeken en in productie. Mail ons snel als er iets niet klopt.</div>
+<div style="margin:20px 20px 0;display:grid;grid-template-columns:84px 1fr;gap:14px;align-items:center">
+<div style="aspect-ratio:1/1.1;border-radius:14px;background:#F4EBE0;display:flex;align-items:center;justify-content:center"><div style="width:76%;aspect-ratio:1;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;gap:2px"><sc-for list="{{ heads }}" as="h" hint-placeholder-count="4"><div style="width:10px;height:10px;border-radius:50%;background:{{ h }}"></div></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:3px"><strong style="font-size:15.5px">Gezinsportret T-shirt</strong><span style="font-size:13.5px;color:#5C4739">Wit · M · Lotte, Bram, Noor, Mats</span><span style="font-size:15px;font-weight:700">€37,95</span></div>
+</div>
+<div style="margin:20px 20px 0;display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:#5C4739;border-top:1px solid #EADFD2;padding-top:16px">
+<div style="display:flex;justify-content:space-between"><span>Levering</span><span style="color:#2A1C14;text-align:right">Sofie Peeters<br>Kortrijksesteenweg 12, 9000 Gent</span></div>
+<div style="display:flex;justify-content:space-between"><span>Verzending</span><span style="color:#2A1C14">bpost · track &amp; trace volgt</span></div>
+<div style="display:flex;justify-content:space-between"><span>Betaald met</span><span style="color:#2A1C14">Bancontact</span></div>
+</div>
+<div style="padding:24px 20px 40px;display:flex;flex-direction:column;gap:10px"><button style="height:52px;border:1.5px solid #2A1C14;border-radius:99px;background:transparent;font:700 16px Figtree;color:#2A1C14">Opnieuw bestellen met dit ontwerp</button><a href="Everly Klantenservice.dc.html" style="text-align:center;font-size:15px;font-weight:700;padding:10px">Hulp bij deze bestelling</a></div>
+</div>
+</div>
+
+<div id="8c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:8px;align-items:center"><span style="background:#2A1C14;color:#fff;font:600 13px Figtree;padding:4px 10px;border-radius:99px">8c</span><span style="font-size:14px;color:#6B5648">Desktop · account met bestellingen</span></div>
+<div data-screen-label="Account desktop" style="width:1440px;background:#FBF7F2;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(42,28,20,.25)">
+<dc-import name="EverlyHeader" variant="desktop" hint-size="100%,115px"></dc-import>
+<div style="padding:40px 56px 80px;display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start">
+<aside style="display:flex;flex-direction:column;gap:4px">
+<strong style="font-family:'Bricolage Grotesque';font-size:28px;padding-bottom:4px">Hallo Sofie</strong>
+<span style="font-size:14.5px;color:#6B5648;padding-bottom:16px">sofie@voorbeeld.be</span>
+<sc-for list="{{ menu }}" as="m" hint-placeholder-count="5"><a href="#" style="height:46px;padding:0 14px;border-radius:12px;background:{{ m.bg }};color:#2A1C14;font-size:15.5px;font-weight:{{ m.weight }};display:flex;align-items:center;text-decoration:none">{{ m.label }}</a></sc-for>
+</aside>
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-family:'Bricolage Grotesque';font-size:36px;font-weight:700">Bestellingen</h2>
+<div style="display:flex;flex-direction:column;border:1px solid #EADFD2;border-radius:20px;background:#fff;overflow:hidden">
+<sc-for list="{{ orders }}" as="o" hint-placeholder-count="3">
+<button onClick="{{ o.pick }}" style="display:grid;grid-template-columns:140px 1fr 200px 120px 24px;gap:20px;align-items:center;padding:16px 22px;border:0;border-bottom:1px solid #EADFD2;background:{{ o.bg }};text-align:left;font:15px Figtree;color:#2A1C14">
+<strong>{{ o.id }}</strong><span style="color:#5C4739">{{ o.items }}</span><span style="display:flex;align-items:center;gap:8px;font-weight:600;color:{{ o.statusColor }}"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.statusColor }}"></span>{{ o.status }}</span><span style="font-weight:700">{{ o.total }}</span><span style="color:#C2490A">›</span>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="padding:32px;border-radius:24px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;color:#6B5648">{{ sel.id }} · {{ sel.date }}</span><strong style="font-family:'Bricolage Grotesque';font-size:30px">{{ sel.headline }}</strong><span style="font-size:16px;color:#2F5D4A;font-weight:600">{{ sel.eta }}</span></div><div style="display:flex;gap:10px"><button style="height:46px;padding:0 18px;border:1.5px solid #DCCDBB;border-radius:99px;background:#fff;font:600 15px Figtree;color:#2A1C14">Factuur</button><button style="height:46px;padding:0 18px;border:0;border-radius:99px;background:#2A1C14;color:#fff;font:700 15px Figtree">{{ sel.cta }}</button></div></div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
+<sc-for list="{{ selSteps }}" as="s" hint-placeholder-count="5"><div style="display:flex;flex-direction:column;gap:8px"><span style="height:6px;border-radius:3px;background:{{ s.bar }}"></span><strong style="font-size:14.5px;color:{{ s.color }}">{{ s.title }}</strong><span style="font-size:13px;color:#6B5648">{{ s.text }}</span></div></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;border-top:1px solid #EADFD2;padding-top:24px">
+<div style="display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center">
+<div style="aspect-ratio:1/1.1;border-radius:16px;background:#F4EBE0;display:flex;align-items:center;justify-content:center"><div style="width:76%;aspect-ratio:1;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;gap:3px"><sc-for list="{{ heads }}" as="h" hint-placeholder-count="4"><div style="width:14px;height:14px;border-radius:50%;background:{{ h }}"></div></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:17px">{{ sel.product }}</strong><span style="font-size:14.5px;color:#5C4739">{{ sel.options }}</span><a href="#" style="font-size:14.5px;font-weight:700;margin-top:4px">Bewaar als ontwerp</a></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:#5C4739">
+<div style="display:flex;justify-content:space-between"><span>Levering</span><span style="color:#2A1C14;text-align:right">Sofie Peeters, Kortrijksesteenweg 12, 9000 Gent</span></div>
+<div style="display:flex;justify-content:space-between"><span>Verzending</span><span style="color:#2A1C14">{{ sel.carrier }}</span></div>
+<div style="display:flex;justify-content:space-between"><span>Betaald met</span><span style="color:#2A1C14">Bancontact · {{ sel.total }}</span></div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h3 style="margin:0;font-family:'Bricolage Grotesque';font-size:26px;font-weight:700">Bewaarde ontwerpen</h3><span style="font-size:14.5px;color:#6B5648">Hergebruik je portret op een nieuw cadeau</span></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<sc-for list="{{ saved }}" as="d" hint-placeholder-count="3"><div style="padding:14px;border-radius:18px;background:#fff;border:1px solid #EADFD2;display:flex;flex-direction:column;gap:10px"><div style="aspect-ratio:1.4;border-radius:12px;background:{{ d.bg }};display:flex;align-items:center;justify-content:center;gap:3px"><sc-for list="{{ heads }}" as="h" hint-placeholder-count="4"><div style="width:16px;height:16px;border-radius:50%;background:{{ h }}"></div></sc-for></div><strong style="font-size:15px">{{ d.name }}</strong><span style="font-size:13px;color:#6B5648">{{ d.meta }}</span><a href="Everly Product.dc.html" style="font-size:14px;font-weight:700">Gebruik opnieuw →</a></div></sc-for>
+<div style="border-radius:18px;border:1.5px dashed #CDBBA6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#5C4739;font-size:15px;font-weight:600;padding:20px;text-align:center"><span style="font-size:24px;color:#C2490A">+</span>Nieuw ontwerp</div>
+</div>
+</div>
+</div>
+</div>
+<dc-import name="EverlyFooter" variant="desktop" hint-size="100%,380px"></dc-import>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { order: 0 };
+  steps(done) {
+    const d = [['Besteld', '7 okt, 14:32'], ['Nagekeken', '7 okt, 16:05'], ['In productie', 'Klaar ±12 okt'], ['Verzonden', 'Track & trace volgt'], ['Geleverd', 'Verwacht 15–17 okt']];
+    return d.map(([title, text], i) => ({ title, text, i, done: i < done, current: i === done }));
+  }
+  renderVals() {
+    const heads = ['#6B4226', '#E3B65B', '#B5532A', '#E3B65B'].map((h, i) => `linear-gradient(${h} 0 40%, ${['#F2CDB0', '#D9A27E', '#F6D9C4', '#F2CDB0'][i]} 40%)`);
+    const O = [
+      { id: 'EV-10482', date: '7 okt 2026', items: 'Gezinsportret T-shirt', status: 'In productie', statusColor: '#C2490A', total: '€37,95', headline: 'Je cadeau wordt gemaakt', eta: 'Verwacht: do 15 – za 17 okt', cta: 'Hulp nodig?', product: 'Gezinsportret T-shirt', options: 'Wit · M · Lotte, Bram, Noor, Mats', carrier: 'bpost · track & trace volgt', done: 2 },
+      { id: 'EV-09817', date: '2 sep 2026', items: 'Oma & Opa T-shirt × 2', status: 'Geleverd', statusColor: '#2F5D4A', total: '€69,90', headline: 'Geleverd op 8 september', eta: 'Afgegeven bij de buren, nr. 14', cta: 'Opnieuw bestellen', product: 'Oma & Opa T-shirt × 2', options: 'Crème · L en XL · Oma Rita, Opa Jef', carrier: 'bpost · 3SBPB0012345678', done: 5 },
+      { id: 'EV-08544', date: '12 mei 2026', items: 'Wij twee T-shirt', status: 'Geleverd', statusColor: '#2F5D4A', total: '€32,95', headline: 'Geleverd op 17 mei', eta: 'In je brievenbus', cta: 'Opnieuw bestellen', product: 'Wij twee T-shirt', options: 'Perzik · S · Sofie & Wout', carrier: 'bpost · 3SBPB0098765432', done: 5 }
+    ];
+    const sel = O[this.state.order];
+    const map = s => ({ ...s, dot: s.done ? '#2F5D4A' : '#fff', ring: s.done ? '#2F5D4A' : (s.current ? '#C2490A' : '#DCCDBB'), mark: s.done ? '✓' : '', line: s.done ? '#2F5D4A' : '#EADFD2', color: s.done || s.current ? '#2A1C14' : '#6B5648', bar: s.done ? '#2F5D4A' : (s.current ? '#C2490A' : '#EADFD2') });
+    const ms = this.steps(2).map(map); ms[ms.length - 1].line = 'transparent';
+    return {
+      heads,
+      statusSteps: ms,
+      selSteps: this.steps(sel.done).map(map),
+      sel,
+      orders: O.map((o, i) => ({ ...o, pick: () => this.setState({ order: i }), bg: i === this.state.order ? '#FBF3EA' : '#fff' })),
+      menu: ['Overzicht', 'Bestellingen', 'Bewaarde ontwerpen', 'Adressen', 'Uitloggen'].map(l => ({ label: l, bg: l === 'Bestellingen' ? '#F4EBE0' : 'transparent', weight: l === 'Bestellingen' ? 700 : 500 })),
+      saved: [{ name: 'Ons gezin', meta: '4 personen · bewaard 7 okt', bg: '#F4EBE0' }, { name: 'Oma & Opa', meta: '2 personen · bewaard 2 sep', bg: '#E4ECE5' }, { name: 'Sofie & Wout', meta: '2 personen · bewaard 12 mei', bg: '#F6D9CF' }]
+    };
+  }
+}
+</script>
+</body>
+</html>
