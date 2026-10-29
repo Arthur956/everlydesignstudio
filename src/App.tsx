@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { designSchema, type Design, type Person } from './types'
-import { getProduct, getProductColor, getPrice } from './config/products'
+import { getProductColor, getPrice, fallbackProducts } from './config/products'
 import { formatEUR } from './lib/format'
 import { saveToLocalStorage, loadFromLocalStorage } from './lib/storage'
 import { supabase } from './lib/supabase'
@@ -15,6 +15,7 @@ import Step2Uiterlijk from './components/steps/Step2Uiterlijk'
 import Step3Namen from './components/steps/Step3Namen'
 import Step4Controle from './components/steps/Step4Controle'
 import SuccessScreen from './components/SuccessScreen'
+import { useConfig } from './context/ConfigContext'
 
 function parseUrlParams(): { productId: string; color: string; size: string; variant: string; returnTo: string } {
   const params = new URLSearchParams(window.location.search)
@@ -32,7 +33,7 @@ function parseUrlParams(): { productId: string; color: string; size: string; var
 }
 
 function createDefaultDesign(productId: string, color: string): Design {
-  const product = getProduct(productId) ?? getProduct('shirt')!
+  const product = fallbackProducts[productId] ?? fallbackProducts['shirt']!
   const validColor = product.colors.some((c) => c.id === color) ? color : product.colors[0].id
 
   const defaultPeople: Person[] = [
@@ -51,6 +52,7 @@ function createDefaultDesign(productId: string, color: string): Design {
 }
 
 export default function App() {
+  const { products } = useConfig()
   const urlParams = useMemo(() => parseUrlParams(), [])
   const [step, setStep] = useState(1)
   const [activePerson, setActivePerson] = useState(0)
@@ -108,7 +110,7 @@ export default function App() {
     })
   }, [])
 
-  const product = useMemo(() => getProduct(design.product)!, [design.product])
+  const product = useMemo(() => products[design.product] ?? fallbackProducts[design.product] ?? fallbackProducts['shirt']!, [products, design.product])
   const color = useMemo(() => getProductColor(product, design.color), [product, design.color])
   const price = useMemo(() => getPrice(product, design.people.length), [product, design.people.length])
 

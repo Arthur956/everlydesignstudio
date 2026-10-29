@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import type { Design } from '../types'
-import { getProduct, getProductColor, getLayoutSlots, getFont, personTypeFactors } from '../config/products'
+import { useConfig } from '../context/ConfigContext'
+import { getProductColor, getLayoutSlots, getFont, personTypeFactors } from '../config/products'
 import Figure from './Figure'
 
 interface PreviewProps {
@@ -11,7 +12,9 @@ interface PreviewProps {
 }
 
 export default function Preview({ design, selectedPerson, onSelectPerson, variant = 'desktop' }: PreviewProps) {
-  const product = useMemo(() => getProduct(design.product), [design.product])
+  const { products } = useConfig()
+
+  const product = useMemo(() => products[design.product], [products, design.product])
   const color = useMemo(() => (product ? getProductColor(product, design.color) : null), [product, design.color])
   const slots = useMemo(() => (product ? getLayoutSlots(product, design.people.length) : []), [product, design.people.length])
   const font = useMemo(() => (product ? getFont(product, design.font) : null), [product, design.font])
@@ -21,10 +24,7 @@ export default function Preview({ design, selectedPerson, onSelectPerson, varian
   const isMobile = variant === 'mobile'
   const containerW = isMobile ? 224 : 500
   const containerH = isMobile ? 236 : 520
-
-  // Base figure size for a single person at scale 1
   const baseFigureSize = isMobile ? 74 : 150
-
   const printArea = product.printArea
 
   return (
@@ -45,30 +45,8 @@ export default function Preview({ design, selectedPerson, onSelectPerson, varian
         transition: 'background .25s',
       }}
     >
-      {/* Print area: we position figures absolutely within the print area */}
-      <div
-        style={{
-          position: 'absolute',
-          left: `${printArea.x}%`,
-          top: `${printArea.y}%`,
-          width: `${printArea.width}%`,
-          height: `${printArea.height}%`,
-        }}
-      >
-        {/* Figures row */}
-        <div
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'center',
-            gap: isMobile ? '4px' : '8px',
-          }}
-        >
+      <div style={{ position: 'absolute', left: `${printArea.x}%`, top: `${printArea.y}%`, width: `${printArea.width}%`, height: `${printArea.height}%` }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', gap: isMobile ? '4px' : '8px' }}>
           {design.people.map((person, i) => {
             const slot = slots[i] ?? slots[0] ?? { x: 50, y: 60, scale: 1 }
             const sizeFactor = personTypeFactors[person.type] ?? 1
@@ -93,12 +71,7 @@ export default function Preview({ design, selectedPerson, onSelectPerson, varian
                   transition: 'outline-color .2s',
                 }}
               >
-                <Figure
-                  person={person}
-                  size={figureSize}
-                  showBody
-                  bodyColor={color.top}
-                />
+                <Figure person={person} size={figureSize} showBody bodyColor={color.top} />
                 <span
                   style={{
                     fontFamily: font.family,
@@ -122,7 +95,6 @@ export default function Preview({ design, selectedPerson, onSelectPerson, varian
         </div>
       </div>
 
-      {/* Extra line below the figures */}
       {design.line.trim() && (
         <span
           style={{

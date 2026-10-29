@@ -39,7 +39,8 @@ export interface ProductConfig {
   fonts: FontOption[]
 }
 
-export const products: Record<string, ProductConfig> = {
+// Fallback used when DB is unavailable. Also used as default by ConfigContext.
+export const fallbackProducts: Record<string, ProductConfig> = {
   shirt: {
     id: 'shirt',
     name: 'Gezinsportret T-shirt',
@@ -67,9 +68,6 @@ export const products: Record<string, ProductConfig> = {
       { id: 'handgeschreven', label: 'Handgeschreven', family: 'var(--font-script)', weight: 700, sizeFactor: 1.3 },
     ],
   },
-
-  // Bench layout example: 3 seats, 2 people sit centered, 3 people spread.
-  // This proves a non-row layout works with the same system.
   bench: {
     id: 'bench',
     name: 'Bankje Portret',
@@ -93,8 +91,12 @@ export const products: Record<string, ProductConfig> = {
   },
 }
 
-export function getProduct(id: string): ProductConfig | undefined {
-  return products[id]
+// Keep backward-compatible export name
+export const products = fallbackProducts
+
+// Stateless helpers that take a products map
+export function getProductFromMap(productsMap: Record<string, ProductConfig>, id: string): ProductConfig | undefined {
+  return productsMap[id]
 }
 
 export function getProductColor(product: ProductConfig, colorId: string): ProductColor {
@@ -112,6 +114,11 @@ export function getLayoutSlots(product: ProductConfig, peopleCount: number): Lay
 
 export function getFont(product: ProductConfig, fontId: string): FontOption {
   return product.fonts.find((f) => f.id === fontId) ?? product.fonts[0]
+}
+
+// Legacy helpers (use fallback products)
+export function getProduct(id: string): ProductConfig | undefined {
+  return fallbackProducts[id]
 }
 
 export const personTypeFactors: Record<string, number> = {

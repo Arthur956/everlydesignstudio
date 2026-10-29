@@ -1,5 +1,6 @@
 import type { Design, Person, PersonType } from '../../types'
-import { personTypes, personTypeLabels, personTypeFactors, getProduct, getPrice } from '../../config/products'
+import { personTypes, personTypeLabels, personTypeFactors, getProductColor, getPrice } from '../../config/products'
+import { useConfig } from '../../context/ConfigContext'
 import Figure from '../Figure'
 import { formatEUR } from '../../lib/format'
 
@@ -9,7 +10,9 @@ interface Step1Props {
 }
 
 export default function Step1Personen({ design, onUpdate }: Step1Props) {
-  const product = getProduct(design.product)!
+  const { products } = useConfig()
+  const product = products[design.product]
+  if (!product) return null
   const maxPeople = product.maxPeople
   const canAdd = design.people.length < maxPeople
 
@@ -23,29 +26,16 @@ export default function Step1Personen({ design, onUpdate }: Step1Props) {
   })()
 
   function addPerson() {
-    const newPerson: Person = {
-      type: 'adult',
-      skin: 1,
-      hair: 'kort',
-      hairColor: 'bruin',
-      glasses: false,
-      name: '',
-    }
+    const newPerson: Person = { type: 'adult', skin: 1, hair: 'kort', hairColor: 'bruin', glasses: false, name: '' }
     onUpdate((prev) => ({ ...prev, people: [...prev.people, newPerson] }))
   }
 
   function removePerson(i: number) {
-    onUpdate((prev) => ({
-      ...prev,
-      people: prev.people.filter((_, j) => j !== i),
-    }))
+    onUpdate((prev) => ({ ...prev, people: prev.people.filter((_, j) => j !== i) }))
   }
 
   function setPersonType(i: number, type: PersonType) {
-    onUpdate((prev) => ({
-      ...prev,
-      people: prev.people.map((p, j) => (j === i ? { ...p, type } : p)),
-    }))
+    onUpdate((prev) => ({ ...prev, people: prev.people.map((p, j) => (j === i ? { ...p, type } : p)) }))
   }
 
   return (
@@ -62,72 +52,27 @@ export default function Step1Personen({ design, onUpdate }: Step1Props) {
       {design.people.map((person, i) => {
         const sizeFactor = personTypeFactors[person.type] ?? 1
         return (
-          <div
-            key={i}
-            style={{
-              padding: '10px 12px 12px',
-              borderRadius: '16px',
-              background: '#fff',
-              border: '1px solid var(--color-line)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '8px',
-            }}
-          >
+          <div key={i} style={{ padding: '10px 12px 12px', borderRadius: '16px', background: '#fff', border: '1px solid var(--color-line)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  background: 'var(--color-sand)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--color-sand)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Figure person={person} size={34 * sizeFactor} showBody={false} />
               </div>
-              <strong style={{ flex: 1, fontSize: '15.5px' }}>
-                {person.name || `Persoon ${i + 1}`}
-              </strong>
+              <strong style={{ flex: 1, fontSize: '15.5px' }}>{person.name || `Persoon ${i + 1}`}</strong>
               {design.people.length > 1 && (
-                <button
-                  onClick={() => removePerson(i)}
-                  aria-label="Verwijderen"
-                  style={{
-                    width: '44px',
-                    height: '44px',
-                    margin: '-6px -6px -6px 0',
-                    border: 0,
-                    background: 'none',
-                    color: 'var(--color-faint)',
-                    fontSize: '22px',
-                  }}
-                >
-                  ×
-                </button>
+                <button onClick={() => removePerson(i)} aria-label="Verwijderen" style={{ width: '44px', height: '44px', margin: '-6px -6px -6px 0', border: 0, background: 'none', color: 'var(--color-faint)', fontSize: '22px' }}>×</button>
               )}
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '6px' }}>
               {personTypes.map((type) => {
                 const selected = person.type === type
                 return (
-                  <button
-                    key={type}
-                    onClick={() => setPersonType(i, type)}
-                    style={{
-                      height: '44px',
-                      borderRadius: '12px',
-                      border: `1.5px solid ${selected ? 'var(--color-ink)' : 'var(--color-field-border)'}`,
-                      background: selected ? 'var(--color-ink)' : '#fff',
-                      color: selected ? '#fff' : 'var(--color-ink)',
-                      fontWeight: 600,
-                      fontSize: '12px',
-                      padding: '0 2px',
-                      letterSpacing: '-0.01em',
-                    }}
-                  >
+                  <button key={type} onClick={() => setPersonType(i, type)} style={{
+                    height: '44px', borderRadius: '12px',
+                    border: `1.5px solid ${selected ? 'var(--color-ink)' : 'var(--color-field-border)'}`,
+                    background: selected ? 'var(--color-ink)' : '#fff',
+                    color: selected ? '#fff' : 'var(--color-ink)',
+                    fontWeight: 600, fontSize: '12px', padding: '0 2px', letterSpacing: '-0.01em',
+                  }}>
                     {personTypeLabels[type]}
                   </button>
                 )
@@ -138,26 +83,17 @@ export default function Step1Personen({ design, onUpdate }: Step1Props) {
       })}
 
       {canAdd && (
-        <button
-          onClick={addPerson}
-          style={{
-            minHeight: '52px',
-            borderRadius: '16px',
-            border: '1.5px dashed #C9B6A2',
-            background: 'none',
-            fontWeight: 700,
-            fontSize: '15px',
-            color: 'var(--color-accent)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '6px',
-          }}
-        >
-          + Persoon toevoegen{' '}
-          <span style={{ fontWeight: 500, color: 'var(--color-muted)' }}>· {addPriceLabel}</span>
+        <button onClick={addPerson} style={{
+          minHeight: '52px', borderRadius: '16px', border: '1.5px dashed #C9B6A2', background: 'none',
+          fontWeight: 700, fontSize: '15px', color: 'var(--color-accent)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+        }}>
+          + Persoon toevoegen <span style={{ fontWeight: 500, color: 'var(--color-muted)' }}>· {addPriceLabel}</span>
         </button>
       )}
     </div>
   )
 }
+
+// Keep getProductColor import referenced
+void getProductColor
