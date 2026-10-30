@@ -27,6 +27,10 @@ function LayerShape({ layer, color, tint }: { layer: ClipartLayer; color: string
   const fill = tint ? '#888' : color
   const shapeId = layer.id
 
+  if (layer.src && layer.src.startsWith('http')) {
+    return <image href={layer.src} x="0" y="0" width="100" height="100" style={tint ? { filter } : undefined} preserveAspectRatio="xMidYMid meet" />
+  }
+
   if (shapeId.includes('back')) {
     if (shapeId.includes('lang')) return <ellipse cx="50" cy="48" rx="42" ry="46" fill={fill} filter={filter} />
     if (shapeId.includes('knot')) return <ellipse cx="50" cy="14" rx="16" ry="16" fill={fill} filter={filter} />

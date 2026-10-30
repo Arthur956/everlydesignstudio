@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from '../../lib/supabase'
 import { useConfig } from '../../context/ConfigContext'
+import { uploadClipart } from '../../lib/clipartUpload'
 
 type Tab = 'skin' | 'hairColor' | 'hairStyle'
 
@@ -232,20 +233,50 @@ function LayerRow({ layer, onSave, onDelete }: {
   const [position, setPosition] = useState(layer.position)
   const [src, setSrc] = useState(layer.src)
   const [tintable, setTintable] = useState(layer.tintable)
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+  const fileRef = useRef<HTMLInputElement>(null)
+
+  const isUploadedImage = src.startsWith('http') || src.startsWith('data:')
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    setUploadError(null)
+    const { url, error } = await uploadClipart(file, `${layer.hair_style_id}/${layer.layer_id || 'layer'}`)
+    if (error) {
+      setUploadError(error)
+    } else {
+      setSrc(url)
+    }
+    setUploading(false)
+    if (fileRef.current) fileRef.current.value = ''
+  }
 
   return (
-    <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-      <input value={layerId} onChange={(e) => setLayerId(e.target.value)} placeholder="layer id" style={{ ...inputStyle, width: '140px', height: '36px', fontSize: '13px' }} />
-      <select value={position} onChange={(e) => setPosition(e.target.value)} style={{ ...inputStyle, width: '90px', height: '36px', fontSize: '13px' }}>
-        <option value="back">Achter</option>
-        <option value="front">Voor</option>
-      </select>
-      <input value={src} onChange={(e) => setSrc(e.target.value)} placeholder="bestandspad of placeholder" style={{ ...inputStyle, flex: 1, height: '36px', fontSize: '13px' }} />
-      <label style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', fontWeight: 600 }}>
-        <input type="checkbox" checked={tintable} onChange={(e) => setTintable(e.target.checked)} /> tint
-      </label>
-      <button onClick={() => void onSave({ ...layer, layer_id: layerId, position, src, tintable })} style={{ height: '36px', padding: '0 10px', borderRadius: '8px', border: '1px solid var(--color-field-border)', background: '#fff', fontWeight: 600, fontSize: '12px' }}>Opslaan</button>
-      <button onClick={() => void onDelete(layer.id)} style={{ width: '32px', height: '36px', borderRadius: '8px', border: '1px solid var(--color-peach)', background: 'var(--color-peach)', color: 'var(--color-accent-hover)', fontWeight: 700 }}>×</button>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+      <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+        <input value={layerId} onChange={(e) => setLayerId(e.target.value)} placeholder="layer id" style={{ ...inputStyle, width: '140px', height: '36px', fontSize: '13px' }} />
+        <select value={position} onChange={(e) => setPosition(e.target.value)} style={{ ...inputStyle, width: '90px', height: '36px', fontSize: '13px' }}>
+          <option value="back">Achter</option>
+          <option value="front">Voor</option>
+        </select>
+        <input value={src} onChange={(e) => setSrc(e.target.value)} placeholder="bestandspad of URL" style={{ ...inputStyle, flex: 1, height: '36px', fontSize: '13px' }} />
+        <label style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', fontWeight: 600 }}>
+          <input type="checkbox" checked={tintable} onChange={(e) => setTintable(e.target.checked)} /> tint
+        </label>
+        <button onClick={() => void onSave({ ...layer, layer_id: layerId, position, src, tintable })} style={{ height: '36px', padding: '0 10px', borderRadius: '8px', border: '1px solid var(--color-field-border)', background: '#fff', fontWeight: 600, fontSize: '12px' }}>Opslaan</button>
+        <button onClick={() => void onDelete(layer.id)} style={{ width: '32px', height: '36px', borderRadius: '8px', border: '1px solid var(--color-peach)', background: 'var(--color-peach)', color: 'var(--color-accent-hover)', fontWeight: 700 }}>×</button>
+      </div>
+      <div style={{ display: 'flex', gap: '8px', alignItems: 'center', paddingLeft: '4px' }}>
+        {isUploadedImage && (
+          <img src={src} alt="preview" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '6px', border: '1px solid var(--color-line)', background: '#fff' }} />
+        )}
+        <input ref={fileRef} type="file" accept="image/*" onChange={handleFile} style={{ display: 'none' }} />
+        <button onClick={() => fileRef.current?.click()} disabled={uploading} style={{ height: '30px', padding: '0 12px', borderRadius: '8px', border: '1px solid var(--color-field-border)', background: '#fff', fontWeight: 600, fontSize: '12px', color: 'var(--color-accent)', opacity: uploading ? 0.5 : 1 }}>{uploading ? 'Uploaden…' : 'Upload afbeelding'}</button>
+        {uploadError && <span style={{ fontSize: '12px', color: 'var(--color-accent-hover)' }}>{uploadError}</span>}
+      </div>
     </div>
   )
 }
@@ -254,16 +285,46 @@ function NewLayerRow({ hairStyleId, onSave }: { hairStyleId: string; onSave: (ro
   const [layerId, setLayerId] = useState('')
   const [position, setPosition] = useState('front')
   const [src, setSrc] = useState('')
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+  const fileRef = useRef<HTMLInputElement>(null)
+
+  const isUploadedImage = src.startsWith('http') || src.startsWith('data:')
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    setUploadError(null)
+    const { url, error } = await uploadClipart(file, `${hairStyleId}/${layerId || 'new-layer'}`)
+    if (error) {
+      setUploadError(error)
+    } else {
+      setSrc(url)
+    }
+    setUploading(false)
+    if (fileRef.current) fileRef.current.value = ''
+  }
 
   return (
-    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', borderTop: '1px dashed var(--color-line)', paddingTop: '8px' }}>
-      <input value={layerId} onChange={(e) => setLayerId(e.target.value)} placeholder="nieuwe layer id" style={{ ...inputStyle, width: '140px', height: '36px', fontSize: '13px' }} />
-      <select value={position} onChange={(e) => setPosition(e.target.value)} style={{ ...inputStyle, width: '90px', height: '36px', fontSize: '13px' }}>
-        <option value="back">Achter</option>
-        <option value="front">Voor</option>
-      </select>
-      <input value={src} onChange={(e) => setSrc(e.target.value)} placeholder="bestandspad" style={{ ...inputStyle, flex: 1, height: '36px', fontSize: '13px' }} />
-      <button onClick={() => { if (layerId) { void onSave({ id: 0, hair_style_id: hairStyleId, layer_id: layerId, position, src: src || 'placeholder', tintable: true, sort_order: 0 }); setLayerId(''); setSrc('') } }} disabled={!layerId} style={{ height: '36px', padding: '0 10px', borderRadius: '8px', border: 0, background: 'var(--color-accent)', color: '#fff', fontWeight: 600, fontSize: '12px', opacity: !layerId ? 0.4 : 1 }}>+ Laag</button>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', borderTop: '1px dashed var(--color-line)', paddingTop: '8px' }}>
+      <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+        <input value={layerId} onChange={(e) => setLayerId(e.target.value)} placeholder="nieuwe layer id" style={{ ...inputStyle, width: '140px', height: '36px', fontSize: '13px' }} />
+        <select value={position} onChange={(e) => setPosition(e.target.value)} style={{ ...inputStyle, width: '90px', height: '36px', fontSize: '13px' }}>
+          <option value="back">Achter</option>
+          <option value="front">Voor</option>
+        </select>
+        <input value={src} onChange={(e) => setSrc(e.target.value)} placeholder="bestandspad of URL" style={{ ...inputStyle, flex: 1, height: '36px', fontSize: '13px' }} />
+        <button onClick={() => { if (layerId) { void onSave({ id: 0, hair_style_id: hairStyleId, layer_id: layerId, position, src: src || 'placeholder', tintable: true, sort_order: 0 }); setLayerId(''); setSrc('') } }} disabled={!layerId} style={{ height: '36px', padding: '0 10px', borderRadius: '8px', border: 0, background: 'var(--color-accent)', color: '#fff', fontWeight: 600, fontSize: '12px', opacity: !layerId ? 0.4 : 1 }}>+ Laag</button>
+      </div>
+      <div style={{ display: 'flex', gap: '8px', alignItems: 'center', paddingLeft: '4px' }}>
+        {isUploadedImage && (
+          <img src={src} alt="preview" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '6px', border: '1px solid var(--color-line)', background: '#fff' }} />
+        )}
+        <input ref={fileRef} type="file" accept="image/*" onChange={handleFile} style={{ display: 'none' }} />
+        <button onClick={() => fileRef.current?.click()} disabled={uploading} style={{ height: '30px', padding: '0 12px', borderRadius: '8px', border: '1px solid var(--color-field-border)', background: '#fff', fontWeight: 600, fontSize: '12px', color: 'var(--color-accent)', opacity: uploading ? 0.5 : 1 }}>{uploading ? 'Uploaden…' : 'Upload afbeelding'}</button>
+        {uploadError && <span style={{ fontSize: '12px', color: 'var(--color-accent-hover)' }}>{uploadError}</span>}
+      </div>
     </div>
   )
 }
